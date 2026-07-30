@@ -1,74 +1,107 @@
 # ChatGPT Features
 
-Presentation web slide ภาษาไทยสำหรับทำความเข้าใจ ChatGPT Features แบบอ่านง่าย ใช้งานได้ทั้ง desktop และ mobile โดยคง technical terms ที่แปลแล้วเสียความหมายไว้เป็นภาษาอังกฤษ
+คู่มือภาษาไทยแบบ Interactive Web Slide สำหรับทำความเข้าใจและเลือกใช้ 22 ChatGPT + Codex Features จากเอกสารทางการของ OpenAI โดยคงชื่อ Feature, prompt, product surface และ technical terms เป็นภาษาอังกฤษเมื่อการแปลทำให้ความหมายคลาดเคลื่อน
 
-## เปิดใช้งาน
+จัดทำโดย **Suphakorn P.**
 
-โปรเจกต์นี้เป็น static website จึงไม่ต้อง build หรือ install dependencies ก่อนเปิดใช้งาน
+[เปิดเว็บไซต์](https://chatgpt-features.suphakorn-pal.chatgpt.site) · [Official documentation](https://learn.chatgpt.com/docs/features)
+
+## จุดเด่น
+
+- ครบ 22 Features แบ่งเป็น `Workflows 8`, `Capabilities 10` และ `Reference 4`
+- นำเสนอได้ทั้ง Slide mode และหน้าอ่านต่อเนื่อง
+- มี Feature Explorer สำหรับค้นหา กรอง และเปิดรายละเอียดเชิงลึก
+- รองรับ keyboard navigation, touch, swipe และ deep links
+- ออกแบบและทดสอบให้ใช้งานได้ทั้ง desktop และ mobile
+- ทุก Feature อ้างอิงกลับไปยัง Official OpenAI Documentation โดยตรง
+
+## เริ่มใช้งานในเครื่อง
+
+โปรเจกต์นี้เป็น static website และไม่มี runtime dependency
 
 ```bash
+git clone https://github.com/SuphakornP/chatgpt-features.git
 cd chatgpt-features
-python3 -m http.server 4173
+npm run dev
 ```
 
-จากนั้นเปิด `http://localhost:4173` ใน browser
-
-สำหรับสร้าง deployment bundle ที่ใช้กับ OpenAI Sites:
-
-```bash
-npm run build
-```
+จากนั้นเปิด `http://localhost:4173`
 
 ## วิธีใช้งาน
 
 - ใช้ `←` `→`, `↑` `↓`, `Page Up`, `Page Down`, `Space`, `Home` และ `End` เพื่อเปลี่ยนสไลด์
-- บนมือถือเลื่อนขึ้น–ลงตามธรรมชาติ หรือ swipe ซ้าย–ขวางเพื่อข้ามสไลด์
-- กดชื่อ Feature ใดก็ได้เพื่อเปิดรายละเอียด, availability, ข้อควรระวัง, prompt ตัวอย่าง และ official source
-- ปุ่ม `อ่านต่อเนื่อง` เปลี่ยนจาก Slide mode เป็นหน้าอ่านยาว และจดจำโหมดล่าสุดไว้ใน browser
-- Deep link ใช้ได้ทั้งระดับสไลด์ เช่น `#three-webs` และระดับ Feature เช่น `#feature/browser`
+- บนมือถือเลื่อนขึ้น–ลง หรือ swipe ซ้าย–ขวาเพื่อข้ามสไลด์
+- กดชื่อ Feature เพื่อดู use case, availability, limitations, prompt ตัวอย่าง และ official source
+- กด `อ่านต่อเนื่อง` เพื่อเปลี่ยนจาก Slide mode เป็นหน้าอ่านยาว
+- ใช้ deep link ระดับสไลด์ เช่น `#three-webs` หรือระดับ Feature เช่น `#feature/browser`
 
-## ทดสอบ
+## คำสั่งสำคัญ
 
-ต้องใช้ Node.js 18 ขึ้นไป
+| คำสั่ง | หน้าที่ |
+| --- | --- |
+| `npm run dev` | เปิด local server ที่ port `4173` |
+| `npm run validate` | ตรวจโครงสร้างข้อมูล จำนวน Features และ official URLs |
+| `npm run check:syntax` | ตรวจ JavaScript syntax |
+| `npm test` | รัน content validation และ syntax checks |
+| `npm run build` | สร้าง deployment bundle ใน `dist/` สำหรับ OpenAI Sites |
+
+ต้องใช้ Node.js 18 ขึ้นไปสำหรับคำสั่งตรวจสอบและ build
+
+## การจัดการเนื้อหา
+
+ข้อมูลหลักอยู่ใน `assets/js/content.js` ภายใต้โครงสร้าง `{ meta, features, slides }`
+
+- `features` เก็บข้อมูล Feature, หมวด, คำอธิบายภาษาไทย, surfaces, availability, limitations, prompt และ `officialUrl`
+- `slides` กำหนดลำดับและรูปแบบการนำเสนอ โดยอ้าง Feature ผ่าน `featureId` หรือ `featureIds`
+- Feature ทุกตัวต้องถูกอ้างถึงอย่างน้อยหนึ่งครั้งใน slides
+- Cover ต้องมี author credit และ slide IDs ต้องไม่ซ้ำกัน
+- URL อ้างอิงต้องอยู่ภายใต้ `https://learn.chatgpt.com/docs/`
+
+หลังแก้ข้อมูลให้รัน:
 
 ```bash
 npm test
+npm run build
+git diff --check
 ```
 
-คำสั่งนี้ตรวจทั้งความครบถ้วนของข้อมูลและ JavaScript syntax:
+## โครงสร้างโปรเจกต์
 
-```bash
-npm run validate
-npm run check:syntax
+```text
+chatgpt-features/
+├── .openai/hosting.json     # OpenAI Sites project configuration
+├── assets/
+│   ├── css/styles.css       # Visual system และ responsive layout
+│   ├── js/app.js            # Rendering และ interactions
+│   ├── js/content.js        # Features และ slide content
+│   └── media/               # Visual assets
+├── tools/
+│   ├── build-site.mjs       # สร้าง Sites deployment bundle
+│   └── validate.mjs         # Content และ provenance validation
+├── worker/index.js          # Cloudflare Worker entrypoint
+├── index.html               # Website entry point
+└── package.json
 ```
 
-ตัว validator กำหนดให้มี Features ทั้งหมด 22 รายการ แบ่งเป็น `workflows` 8 รายการ, `capabilities` 10 รายการ และ `reference` 4 รายการ พร้อมตรวจ required fields, เนื้อหาภาษาไทย, URL อ้างอิง, slide ID ที่ไม่ซ้ำ และการเชื่อม Feature ทุกตัวเข้ากับอย่างน้อยหนึ่ง slide
+## Source policy
 
-ใน `slides` ให้ใส่ Feature ID เป็น string แบบตรงตัวใน field ที่ใช้อ้างอิง เช่น `featureId` หรือ `featureIds` เพื่อให้ validator ตรวจ coverage ได้
+เนื้อหาสรุปและเรียบเรียงจาก [ChatGPT Features documentation](https://learn.chatgpt.com/docs/features) และหน้าลูกภายใต้ `learn.chatgpt.com/docs` เท่านั้น ไม่มีการใช้บทความภายนอกเป็นแหล่งข้อเท็จจริง
 
-## โครงสร้างหลัก
+ข้อความภาษาไทยจัดทำเพื่อการเรียนรู้และอาจไม่ใช่คำแปลอย่างเป็นทางการ ชื่อผลิตภัณฑ์และ technical terms ยังคงเป็นภาษาอังกฤษเมื่อเหมาะสม
 
-- `index.html` — entry point ของ presentation
-- `assets/css/` — visual system และ responsive layout
-- `assets/js/content.js` — ข้อมูล `{ meta, features, slides }`
-- `assets/js/app.js` — rendering และ interaction
-- `assets/media/` — visual assets
-- `tools/validate.mjs` — content and provenance validation
-- `tools/build-site.mjs` — สร้าง static assets และ Cloudflare Worker entrypoint สำหรับ Sites
-- `worker/index.js` — worker ที่เสิร์ฟเว็บไซต์และรองรับ URL fallback
+## QA
 
-## Source provenance
+- Content inventory และ category counts ครบ `8 / 10 / 4`
+- ทุก Feature มี official URL และเชื่อมกับ slide อย่างน้อยหนึ่งหน้า
+- JavaScript syntax และ deployment build ผ่าน
+- ตรวจ keyboard, scroll, search/filter, modal, deep links, Copy Prompt และ Read mode
+- ตรวจ responsive layout ที่ `1440×900`, `390×844` และ `320×568`
+- Browser QA artifacts ใน `output/playwright/` จะไม่ถูก commit
 
-เนื้อหาทั้งหมดสรุปและเรียบเรียงจาก [ChatGPT Features documentation](https://learn.chatgpt.com/docs/features) และหน้าลูกภายใต้ `https://learn.chatgpt.com/docs/` เท่านั้น แต่ละ Feature ต้องมี `officialUrl` ที่ชี้กลับไปยังหน้าเอกสารทางการโดยตรง
+## Deployment
 
-ไม่มีการใช้บทความภายนอกเป็นแหล่งอ้างอิง ข้อความภาษาไทยเป็นการสรุปเพื่อการเรียนรู้ ส่วนชื่อ Feature, product surface, prompt และ technical terms จะคงภาษาอังกฤษเมื่อการแปลทำให้ความหมายคลาดเคลื่อน
+เว็บไซต์เผยแพร่ผ่าน [OpenAI Sites](https://chatgpt-features.suphakorn-pal.chatgpt.site) โดย `npm run build` จะสร้าง static assets และ Cloudflare Worker-compatible entrypoint สำหรับ deployment
 
-## QA ที่ตรวจแล้ว
+## License
 
-- Content: 22 Features ครบตามสัดส่วน `8 / 10 / 4` และทุก Feature มี official URL
-- Links: หน้าต้นทางทั้ง 22 URL ตอบกลับ `HTTP 200` ณ วันที่ตรวจ
-- Runtime: browser console ไม่มี error/warning, ไม่มี duplicate DOM IDs และทุก interactive control มี accessible name
-- Responsive visual QA: `1440×900`, `390×844` และ `320×568`
-- Interaction: keyboard navigation, scroll, Feature search/filter, modal Escape, deep link, Copy Prompt และ Read mode
-
-ภาพ QA สำหรับตรวจในเครื่องจะถูกเขียนไว้ใน `output/playwright/` และไม่ถูก commit ขึ้น GitHub
+โปรเจกต์นี้เผยแพร่ภายใต้ [MIT License](LICENSE)
