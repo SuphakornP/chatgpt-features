@@ -13,6 +13,12 @@ python3 -m http.server 4173
 
 จากนั้นเปิด `http://localhost:4173` ใน browser
 
+สำหรับสร้าง deployment bundle ที่ใช้กับ OpenAI Sites:
+
+```bash
+npm run build
+```
+
 ## วิธีใช้งาน
 
 - ใช้ `←` `→`, `↑` `↓`, `Page Up`, `Page Down`, `Space`, `Home` และ `End` เพื่อเปลี่ยนสไลด์
@@ -48,6 +54,8 @@ npm run check:syntax
 - `assets/js/app.js` — rendering และ interaction
 - `assets/media/` — visual assets
 - `tools/validate.mjs` — content and provenance validation
+- `tools/build-site.mjs` — สร้าง static assets และ Cloudflare Worker entrypoint สำหรับ Sites
+- `worker/index.js` — worker ที่เสิร์ฟเว็บไซต์และรองรับ URL fallback
 
 ## Source provenance
 

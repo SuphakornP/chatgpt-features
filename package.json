@@ -5,6 +5,7 @@
   "description": "Thai-first interactive guide to ChatGPT features, sourced from official ChatGPT documentation.",
   "scripts": {
     "dev": "python3 -m http.server 4173",
+    "build": "node tools/build-site.mjs",
     "validate": "node tools/validate.mjs",
     "check:syntax": "node --check assets/js/content.js && node --check assets/js/app.js",
     "test": "npm run validate && npm run check:syntax"
