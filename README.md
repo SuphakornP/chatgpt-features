@@ -1,4 +1,4 @@
-# ChatGPT Features Atlas
+# ChatGPT Features
 
 Presentation web slide ภาษาไทยสำหรับทำความเข้าใจ ChatGPT Features แบบอ่านง่าย ใช้งานได้ทั้ง desktop และ mobile โดยคง technical terms ที่แปลแล้วเสียความหมายไว้เป็นภาษาอังกฤษ
 

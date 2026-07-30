@@ -527,7 +527,7 @@
     document.querySelector("#chapterName").textContent = chapter.name;
     document.querySelector("#prevSlide").disabled = clamped === 0;
     document.querySelector("#nextSlide").disabled = clamped === atlas.slides.length - 1;
-    document.title = `${String(clamped + 1).padStart(2, "0")} · ${slide.title.replaceAll("\n", " ")} — Feature Atlas`;
+    document.title = `${String(clamped + 1).padStart(2, "0")} · ${slide.title.replaceAll("\n", " ")} — ChatGPT Features`;
     localStorage.setItem("cfa.slide", String(clamped));
 
     if (updateHash && !featureDialog.open) {

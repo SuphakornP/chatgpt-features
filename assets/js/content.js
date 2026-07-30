@@ -295,7 +295,7 @@
       id: "cover",
       chapter: "intro",
       type: "cover",
-      eyebrow: "CHATGPT + CODEX / FEATURE ATLAS",
+      eyebrow: "CHATGPT + CODEX / FEATURE",
       title: "22 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
       author: "Suphakorn P.",
@@ -544,7 +544,7 @@
 
   window.FEATURE_ATLAS = {
     meta: {
-      title: "ChatGPT + Codex Feature Atlas",
+      title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 22 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
       checkedAt: "30 กรกฎาคม 2026",
