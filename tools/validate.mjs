@@ -218,6 +218,12 @@ if (!fs.existsSync(contentPath)) {
           collectFeatureReferences(slide, ids).forEach((id) => referencedFeatures.add(id));
         });
 
+        const coverSlide = atlas.slides.find((slide) => isRecord(slide) && slide.id === "cover");
+        check(
+          isRecord(coverSlide) && isNonEmptyString(coverSlide.author),
+          "cover slide includes an author credit",
+        );
+
         check(slideIds.size === atlas.slides.length, "all slide IDs are present and unique");
         const missingReferences = [...ids].filter((id) => !referencedFeatures.has(id));
         check(

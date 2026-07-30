@@ -157,6 +157,7 @@
           <div class="cover-proof" data-reveal>
             <span>OFFICIAL OPENAI SOURCES ONLY</span>
             <span>ตรวจสอบล่าสุด ${escapeHtml(atlas.meta.checkedAt)}</span>
+            <span class="cover-author">จัดทำโดย <strong>${escapeHtml(slide.author)}</strong></span>
           </div>
         </div>
         <div class="cover-visual" data-reveal>${heroOrbit()}</div>

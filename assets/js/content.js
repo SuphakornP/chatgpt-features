@@ -298,6 +298,7 @@
       eyebrow: "CHATGPT + CODEX / FEATURE ATLAS",
       title: "22 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
+      author: "Suphakorn P.",
       featureIds: []
     },
     {
