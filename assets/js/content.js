@@ -49,8 +49,8 @@
       whenToUse: "งานตรวจซ้ำ รายงานประจำ monitoring หรือ workflow ที่ prompt และ cadence ชัดเจนแล้ว",
       howToStart: "ทดสอบ prompt ใน chat ปกติก่อน แล้วสร้าง task ใน Scheduled; เลือก standalone task หรือ schedule ภายใน chat ที่ต้องใช้ context เดิม",
       surfaces: ["Web", "Desktop app"],
-      availability: "ต้องเปิดใช้ใน workspace; local scheduled task ต้องเปิดเครื่องและ app ไว้",
-      limitations: "Web task ใช้ uploaded context และ connected tools ได้ แต่เข้าถึง local folder/worktree โดยตรงไม่ได้; CLI และ IDE ไม่มีหน้าจัดการ Scheduled",
+      availability: "ต้องเปิดใช้ใน workspace; local scheduled task ต้องเปิดเครื่องและ app ไว้; gpt-5.4 และ gpt-5.4-mini สำหรับ ChatGPT sign-in ใช้ได้ถึง 31 สิงหาคม 2026",
+      limitations: "Web task ใช้ uploaded context และ connected tools ได้ แต่เข้าถึง local folder/worktree โดยตรงไม่ได้; CLI และ IDE ไม่มีหน้าจัดการ Scheduled; งานที่ pin model เดิมต้องเปลี่ยนเป็น gpt-5.6-terra หรือ gpt-5.6-luna ก่อนวันดังกล่าว",
       prompt: "ทุกวันทำการ 09:00 ตรวจ issue ใหม่ แยก priority พร้อมเหตุผล และสรุปสิ่งที่ต้องมีคนตัดสินใจ",
       officialUrl: "https://learn.chatgpt.com/docs/automations"
     },
@@ -547,7 +547,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 22 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "30 กรกฎาคม 2026",
+      checkedAt: "3 สิงหาคม 2026",
       counts: { workflows: 8, capabilities: 10, reference: 4 }
     },
     categories: {
