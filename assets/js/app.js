@@ -123,22 +123,23 @@
   }
 
   function heroOrbit() {
-    const dots = Array.from({ length: 22 }, (_, index) => {
-      const angle = (360 / 22) * index;
+    const total = atlas.features.length;
+    const dots = Array.from({ length: total }, (_, index) => {
+      const angle = (360 / total) * index;
       const ring = index % 3;
       return `<i style="--angle:${angle}deg;--ring:${ring}" aria-hidden="true"></i>`;
     }).join("");
     return `
-      <figure class="orbit" aria-label="แผนที่ Features 22 หัวข้อ แบ่งเป็น Workflows, Capabilities และ Reference">
+      <figure class="orbit" aria-label="แผนที่ Features ${total} หัวข้อ แบ่งเป็น Workflows, Capabilities และ Reference">
         <div class="orbit__ring orbit__ring--outer"></div>
         <div class="orbit__ring orbit__ring--middle"></div>
         <div class="orbit__ring orbit__ring--inner"></div>
         <div class="orbit__nodes">${dots}</div>
-        <div class="orbit__core"><span>22</span><small>FEATURES</small></div>
+        <div class="orbit__core"><span>${total}</span><small>FEATURES</small></div>
         <figcaption>
-          <span>08 WORKFLOWS</span>
-          <span>10 CAPABILITIES</span>
-          <span>04 REFERENCE</span>
+          <span>${String(atlas.meta.counts.workflows).padStart(2, "0")} WORKFLOWS</span>
+          <span>${String(atlas.meta.counts.capabilities).padStart(2, "0")} CAPABILITIES</span>
+          <span>${String(atlas.meta.counts.reference).padStart(2, "0")} REFERENCE</span>
         </figcaption>
       </figure>`;
   }
