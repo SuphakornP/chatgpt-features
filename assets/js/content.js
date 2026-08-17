@@ -164,10 +164,10 @@
       name: "Plugins",
       thaiPromise: "ติดตั้ง reusable workflow ที่ bundle skills, connectors และเครื่องมืออื่นให้ ChatGPT หรือ Codex เรียกใช้ได้ถูกวิธี",
       whenToUse: "เมื่อต้องทำงานซ้ำด้วยขั้นตอนเฉพาะ เชื่อม Gmail/Drive/Slack/GitHub หรือเพิ่ม domain workflow ให้ทีม",
-      howToStart: "เปิด Plugins directory บน ChatGPT Work/Desktop หรือใช้ /plugins ใน Codex CLI; หลังติดตั้งให้เริ่ม chat/session ใหม่",
-      surfaces: ["Web Work", "Desktop app", "Codex CLI"],
-      availability: "ไม่มีใน Chat ปกติ, IDE extension และ mobile",
-      limitations: "Connector บางตัวต้อง authorize บริการภายนอก; workspace policy และ sign-in method อาจจำกัด plugin ที่ใช้ได้",
+      howToStart: "เปิด Plugins directory บน web/Desktop หรือใช้ /plugins ใน Codex CLI; บน mobile ใช้ plugin ที่มีใน account ผ่าน Chat หรือ Work และหลังติดตั้งให้เริ่ม chat/session ใหม่",
+      surfaces: ["Web", "Desktop app", "Mobile", "Codex CLI"],
+      availability: "ใช้ได้ใน Chat และ Work บน web, desktop และ mobile รวมถึง Codex ใน Desktop app และ Codex CLI; IDE extension ยังไม่รองรับ",
+      limitations: "Connector บางตัวต้อง authorize บริการภายนอก; workspace policy, account และ sign-in method อาจจำกัด plugin ที่มองเห็นหรือเชื่อมต่อได้",
       prompt: "ติดตั้ง Google Drive plugin แล้วสรุปเอกสารในโฟลเดอร์แคมเปญ โดยอ้างชื่อไฟล์ต้นทางทุกข้อ",
       officialUrl: "https://learn.chatgpt.com/docs/plugins"
     },
@@ -571,7 +571,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "10 สิงหาคม 2026",
+      checkedAt: "17 สิงหาคม 2026",
       counts: { workflows: 9, capabilities: 10, reference: 4 }
     },
     categories: {

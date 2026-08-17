@@ -2936,7 +2936,11 @@ body[data-mode="read"] .slide__frame {
   }
 
   .cover-proof {
-    margin-top: 0.85rem;
+    margin-top: 0.25rem;
+  }
+
+  body[data-mode="deck"] .slide--cover .slide__sources {
+    display: none;
   }
 
   .cover-lead,
