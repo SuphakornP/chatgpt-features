@@ -36,8 +36,8 @@
       whenToUse: "เมื่อผลลัพธ์ควรเป็น hosted experience ที่แชร์ เปิดใช้ซ้ำ หรือมี interaction มากกว่าคำตอบใน chat",
       howToStart: "ระบุคำว่า website ใน prompt หรือเรียก @Sites แล้วบอก audience, purpose, behavior และข้อมูลที่ต้องใช้",
       surfaces: ["Web", "Desktop app"],
-      availability: "Public beta; ขึ้นกับ plan, region และ workspace settings",
-      limitations: "ทุก deployment URL เป็น production; CLI และ IDE ไม่มี Sites management view; framework และบริการ background บางชนิดอาจไม่รองรับ",
+      availability: "Public beta สำหรับ Plus, Pro, Business, Enterprise และ Edu โดยมี usage limits ตาม plan; co-editing และ URL editing ขึ้นกับ account และ workspace",
+      limitations: "ทุก deployment URL เป็น production; editor อ่าน live database data และ publish งานต่อได้หลัง owner publish ครั้งแรก แต่เปลี่ยน audience, settings หรือ ownership ไม่ได้; CLI และ IDE ไม่มี Sites management view",
       prompt: "@Sites สร้างเว็บไซต์ onboarding สำหรับทีมขาย มี checklist, progress ที่จำได้ และหน้า resource ที่ค้นหาได้",
       officialUrl: "https://learn.chatgpt.com/docs/sites"
     },
@@ -163,12 +163,12 @@
       category: "capabilities",
       name: "Plugins",
       thaiPromise: "ติดตั้ง reusable workflow ที่ bundle skills, connectors และเครื่องมืออื่นให้ ChatGPT หรือ Codex เรียกใช้ได้ถูกวิธี",
-      whenToUse: "เมื่อต้องทำงานซ้ำด้วยขั้นตอนเฉพาะ เชื่อม Gmail/Drive/Slack/GitHub หรือเพิ่ม domain workflow ให้ทีม",
+      whenToUse: "เมื่อต้องทำงานซ้ำด้วยขั้นตอนเฉพาะ เชื่อม Gmail/Drive/Slack/GitHub หรือให้ Codex และ Work อ่าน ค้นหา ร่าง และส่งข้อความผ่าน Apple Messages บน Mac",
       howToStart: "เปิด Plugins directory บน web/Desktop หรือใช้ /plugins ใน Codex CLI; บน mobile ใช้ plugin ที่มีใน account ผ่าน Chat หรือ Work และหลังติดตั้งให้เริ่ม chat/session ใหม่",
       surfaces: ["Web", "Desktop app", "Mobile", "Codex CLI"],
       availability: "ใช้ได้ใน Chat และ Work บน web, desktop และ mobile รวมถึง Codex ใน Desktop app และ Codex CLI; IDE extension ยังไม่รองรับ",
-      limitations: "Connector บางตัวต้อง authorize บริการภายนอก; workspace policy, account และ sign-in method อาจจำกัด plugin ที่มองเห็นหรือเชื่อมต่อได้",
-      prompt: "ติดตั้ง Google Drive plugin แล้วสรุปเอกสารในโฟลเดอร์แคมเปญ โดยอ้างชื่อไฟล์ต้นทางทุกข้อ",
+      limitations: "Connector บางตัวต้อง authorize บริการภายนอก; Apple Messages ใช้ได้เฉพาะ Codex/Work ใน Apple Silicon Desktop app และควรคง per-send approval เพราะ Full access อาจทำให้ confirmation ส่งข้อความเปิดไม่ได้",
+      prompt: "ใช้ Apple Messages plugin ค้นหาข้อความล่าสุดกับทีมโครงการ สรุปประเด็น และร่างคำตอบ แต่ขออนุมัติข้อความกับผู้รับก่อนส่ง",
       officialUrl: "https://learn.chatgpt.com/docs/plugins"
     },
     {
@@ -571,7 +571,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "17 สิงหาคม 2026",
+      checkedAt: "24 สิงหาคม 2026",
       counts: { workflows: 9, capabilities: 10, reference: 4 }
     },
     categories: {
