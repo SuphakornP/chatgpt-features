@@ -58,13 +58,13 @@
       id: "scheduled-tasks",
       category: "workflows",
       name: "Scheduled tasks",
-      thaiPromise: "ตั้งงาน recurring ให้ทำงานเบื้องหลัง แล้วกลับมาดู active, paused, completed tasks และ run ล่าสุดได้",
-      whenToUse: "งานตรวจซ้ำ รายงานประจำ monitoring หรือ workflow ที่ prompt และ cadence ชัดเจนแล้ว",
-      howToStart: "ทดสอบ prompt ใน chat ปกติก่อน แล้วสร้าง task ใน Scheduled; เลือก standalone task หรือ schedule ภายใน chat ที่ต้องใช้ context เดิม",
-      surfaces: ["Web", "Desktop app"],
-      availability: "ต้องเปิดใช้ใน workspace; local scheduled task ต้องเปิดเครื่องและ app ไว้; gpt-5.4 และ gpt-5.4-mini สำหรับ ChatGPT sign-in ใช้ได้ถึง 31 สิงหาคม 2026",
-      limitations: "Web task ใช้ uploaded context และ connected tools ได้ แต่เข้าถึง local folder/worktree โดยตรงไม่ได้; CLI และ IDE ไม่มีหน้าจัดการ Scheduled; งานที่ pin model เดิมต้องเปลี่ยนเป็น gpt-5.6-terra หรือ gpt-5.6-luna ก่อนวันดังกล่าว",
-      prompt: "ทุกวันทำการ 09:00 ตรวจ issue ใหม่ แยก priority พร้อมเหตุผล และสรุปสิ่งที่ต้องมีคนตัดสินใจ",
+      thaiPromise: "ตั้งงาน recurring หรือให้ supported app event เรียกงานเบื้องหลัง แล้วกลับมาดู active, paused, completed tasks และ run ล่าสุดได้",
+      whenToUse: "งานตรวจซ้ำ รายงานประจำ monitoring หรือ workflow ที่ควรเริ่มเมื่อ Gmail, Slack หรือ GitHub มี event ตรงเงื่อนไข",
+      howToStart: "ทดสอบ prompt ใน chat ปกติก่อน แล้วสร้าง task ใน Scheduled; บน web/mobile เชื่อม app และบอก event ที่ต้องเฝ้า หรือเลือก schedule ตามเวลา",
+      surfaces: ["Web", "Mobile", "Desktop app"],
+      availability: "Event-triggered tasks ใช้ได้บน web และ mobile สำหรับ eligible plans ตาม workspace settings; local scheduled task ต้องเปิดเครื่องและ app ไว้",
+      limitations: "Event trigger ใช้ Gmail, Slack หรือ GitHub และห้ามรวมกับ time-based schedule ใน task เดียว; Desktop, CLI และ IDE สร้าง event-triggered task ไม่ได้; งานที่ pin gpt-5.4 หรือ gpt-5.4-mini ต้องย้าย model เพราะเลิกใช้กับ ChatGPT sign-in วันที่ 31 สิงหาคม 2026",
+      prompt: "เมื่อ pull request ที่ติด label urgent มี review หรือ commit ใหม่ ให้สรุปสิ่งที่เปลี่ยน ตรวจ blocker และรายงาน decision ที่ต้องมีคนเลือก",
       officialUrl: "https://learn.chatgpt.com/docs/automations"
     },
     {
@@ -123,12 +123,12 @@
       id: "browser",
       category: "capabilities",
       name: "Browser",
-      thaiPromise: "ให้ ChatGPT เปิดเว็บไซต์ อ่าน state ปัจจุบัน คลิก พิมพ์ ตรวจหน้าเว็บ และทำ multi-step action โดยคุณยังควบคุมอยู่",
-      whenToUse: "เปรียบเทียบตัวเลือก ทำงานบนเว็บไซต์ ตรวจ localhost หรือ review UI จากสิ่งที่ render จริง",
-      howToStart: "เปิด built-in browser หรือ install Browser plugin ใน Desktop; บน web Work ใช้ cloud browser ตาม availability",
-      surfaces: ["Web Work", "Desktop app"],
-      availability: "Built-in browser ไม่มีใน Codex CLI และ IDE extension",
-      limitations: "Desktop ใช้ browser profile แยกจาก Chrome ปกติ; cloud browser ใช้ public signed-out pages; page content เป็น untrusted input และ sensitive actions ต้อง review",
+      thaiPromise: "ให้ ChatGPT เปิดเว็บไซต์ ใช้ Site tools เมื่อหน้ารองรับ อ่าน state ปัจจุบัน และทำ multi-step action โดยคุณยังควบคุมอยู่",
+      whenToUse: "เปรียบเทียบตัวเลือก ทำงานบนเว็บไซต์ที่ต้อง sign in ตรวจ localhost หรือ review UI จากสิ่งที่ render จริง",
+      howToStart: "เปิด built-in browser หรือเรียก @Browser ใน Desktop; บน web/mobile เริ่ม task ใน Work แล้ว sign in ผ่าน flow ที่ ChatGPT แสดงเมื่อเว็บไซต์ต้องยืนยันตัวตน",
+      surfaces: ["Web Work", "Mobile Work", "Desktop app"],
+      availability: "Built-in browser ไม่มีใน Codex CLI และ IDE extension; website sign-in บน cloud browser ใช้ได้บน web/mobile สำหรับ Plus และ Pro ตาม rollout",
+      limitations: "Desktop และ cloud browser ใช้ profile แยกจาก browser ปกติ; Site tools ต้องใช้ GPT-5.6 Sol/Terra และไม่มีใน Enterprise/Edu; page/tool content เป็น untrusted input และ sensitive actions ต้อง review",
       prompt: "เปิด localhost ของโปรเจกต์ ตรวจ checkout ทั้ง desktop/mobile แล้วสรุป defect พร้อม screenshot และขั้นตอน reproduce",
       officialUrl: "https://learn.chatgpt.com/docs/browser"
     },
@@ -226,13 +226,13 @@
     {
       id: "chrome-extension",
       category: "capabilities",
-      name: "Chrome extension",
-      thaiPromise: "แชร์ context และ signed-in session จาก Chrome profile ที่ใช้อยู่ให้ ChatGPT ทำงานในแท็บจริงของคุณ",
-      whenToUse: "logged-in workflow, งานที่ต้องใช้ tab/session เดิม หรือ extension state ที่ built-in browser แยก profile ทำไม่ได้",
-      howToStart: "ติดตั้งจาก Plugins ใน Desktop app แล้วเรียก @Chrome; ตั้ง allowlist/blocklist และ review confirmation policy",
-      surfaces: ["Desktop app", "Google Chrome"],
-      availability: "รองรับ Google Chrome; ยังไม่รองรับ Chromium browsers อื่น",
-      limitations: "ข้อมูลในหน้าและ browser history มีความอ่อนไหว; file upload ต้องเปิด Allow access to file URLs และ sensitive actions อาจต้อง confirm",
+      name: "Browser extension",
+      thaiPromise: "แชร์ context และ signed-in session จาก browser profile ที่ใช้อยู่ให้ ChatGPT ทำงานในแท็บจริงของคุณ",
+      whenToUse: "logged-in workflow, งานที่ต้องใช้ tab/session เดิม หรือ side chat ที่ built-in browser แยก profile ทำไม่ได้",
+      howToStart: "อัปเดต Desktop app แล้วเปิด Settings > Computer Use; เลือก browser ติดตั้ง extension และเรียก Chrome, Edge, Brave Browser, Opera หรือ Vivaldi ด้วย @-mention",
+      surfaces: ["Desktop app", "Chrome", "Edge", "Brave", "Opera", "Vivaldi"],
+      availability: "ทั้งห้า browser รองรับ tab mentions และ browser control; Chrome, Edge, Brave และ Vivaldi มี side chat แต่ Opera ไม่มี; rollout ขึ้นกับ workspace",
+      limitations: "ข้อมูลในหน้าและ browser history มีความอ่อนไหว; browser ที่รองรับใช้ allowlist/blocklist ร่วมกัน; Chrome file upload ต้องเปิด Allow access to file URLs และ sensitive actions อาจต้อง confirm",
       prompt: "@Chrome เปิดระบบ CRM ใน tab ที่ sign in อยู่ สรุปสถานะ lead ที่ฉันเปิดไว้ แต่ห้ามแก้ข้อมูลหรือส่งข้อความ",
       officialUrl: "https://learn.chatgpt.com/docs/chrome-extension"
     },
@@ -429,7 +429,7 @@
       comparisons: [
         { featureId: "web-search", cue: "FIND", headline: "Web search", body: "หา current information พร้อม sources" },
         { featureId: "browser", cue: "ACT", headline: "Browser", body: "เปิดและใช้งานเว็บใน browser profile แยก" },
-        { featureId: "chrome-extension", cue: "CONTEXT", headline: "Chrome extension", body: "ใช้ tab และ signed-in session ใน Chrome ของคุณ" }
+        { featureId: "chrome-extension", cue: "CONTEXT", headline: "Browser extension", body: "ใช้ tab และ signed-in session ใน browser profile ของคุณ" }
       ],
       featureIds: ["web-search", "browser", "chrome-extension"]
     },
@@ -571,7 +571,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "24 สิงหาคม 2026",
+      checkedAt: "31 สิงหาคม 2026",
       counts: { workflows: 9, capabilities: 10, reference: 4 }
     },
     categories: {
