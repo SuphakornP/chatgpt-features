@@ -16,19 +16,6 @@
       officialUrl: "https://learn.chatgpt.com/docs/projects"
     },
     {
-      id: "remote",
-      category: "workflows",
-      name: "Codex Remote",
-      thaiPromise: "เริ่ม ติดตาม ส่งคำสั่ง อนุมัติ และ review งาน Codex จากมือถือ โดยให้งานรันบน Mac หรือ Windows ที่เชื่อมต่ออยู่",
-      whenToUse: "เมื่อต้องออกจากโต๊ะแต่ยังอยากเริ่มงาน ดู progress ตอบคำถาม อนุมัติ action หรือตรวจ diff และ test results",
-      howToStart: "เปิด Settings > Connections > Control this Mac or PC บน Desktop app แล้วเลือก Set up หรือ Add; จากนั้นสแกน QR ด้วย ChatGPT mobile app ใน account และ workspace เดียวกัน",
-      surfaces: ["ChatGPT mobile app", "Desktop app", "macOS", "Windows"],
-      availability: "ขึ้นกับ rollout และ workspace settings; ต้องมี Mac หรือ Windows PC ที่เชื่อมต่อ เปิดอยู่ และ online",
-      limitations: "งานยังใช้ permission และ security policy ของ connected computer; ควรเชื่อมเฉพาะอุปกรณ์ที่เชื่อถือได้ และ host ที่ sleep หรือ offline จะทำงานต่อไม่ได้",
-      prompt: "เปิดโปรเจกต์ checkout บน MacBook ตรวจ test ที่ล้มเหลว สรุปสาเหตุ และหยุดขออนุมัติก่อนแก้ไฟล์",
-      officialUrl: "https://learn.chatgpt.com/docs/remote"
-    },
-    {
       id: "sites",
       category: "workflows",
       name: "Sites",
@@ -140,7 +127,7 @@
       whenToUse: "reproduce desktop bug, เปลี่ยน settings, ทดสอบ simulator หรือทำ cross-app flow ที่ต้องเห็นหน้าจอจริง",
       howToStart: "ติดตั้ง Computer Use plugin ใน Desktop app และอนุญาต Screen Recording/Accessibility ตามระบบปฏิบัติการ",
       surfaces: ["Desktop app", "macOS", "Windows"],
-      availability: "รองรับเฉพาะ region และ workspace ที่กำหนดใน ChatGPT Work หรือ Codex",
+      availability: "รองรับเฉพาะ region และ workspace ที่กำหนดใน ChatGPT Work หรือ Codex; สำหรับงานที่พึ่งพา screenshot หรือ visual judgment มาก ให้เลือก GPT-6 Astra เมื่อมีใน model selector",
       limitations: "ไม่ควบคุม ChatGPT/terminal apps, ไม่ยืนยัน OS security prompt หรือ authenticate เป็น admin; app approval แยกจาก sandbox permission",
       prompt: "เปิดแอป staging ทำ onboarding flow ตาม checklist และหยุดถามฉันก่อนกด action ที่ส่งข้อมูลจริง",
       officialUrl: "https://learn.chatgpt.com/docs/computer-use"
@@ -309,7 +296,7 @@
       chapter: "intro",
       type: "cover",
       eyebrow: "CHATGPT + CODEX / FEATURE",
-      title: "23 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
+      title: "22 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
       author: "Suphakorn P.",
       featureIds: []
@@ -350,21 +337,10 @@
       featureIds: ["projects"]
     },
     {
-      id: "work-from-phone",
-      chapter: "workflows",
-      type: "focus",
-      eyebrow: "WORKFLOWS / 02",
-      title: "ลุกจากโต๊ะได้\nแต่งานยังเดินต่อ",
-      lead: "Codex Remote เชื่อม ChatGPT mobile app กับ Mac หรือ Windows ที่ online เพื่อเริ่ม ส่งคำสั่ง อนุมัติ และ review โดย execution ยังอยู่บน host เดิม",
-      statement: "PHONE → CONNECTED HOST → REVIEW",
-      points: ["เลือก computer และ project จากมือถือ", "ติดตาม progress และอนุมัติ action ที่ร้องขอ", "ตรวจ changed files, diffs และ test results ก่อนตัดสินใจ"],
-      featureIds: ["remote"]
-    },
-    {
       id: "define-done",
       chapter: "workflows",
       type: "goal",
-      eyebrow: "WORKFLOWS / 03",
+      eyebrow: "WORKFLOWS / 02",
       title: "ให้งานเดินต่อ\nพร้อม Definition of Done",
       lead: "/goal ไม่ใช่คำสั่งให้ทำงานนานขึ้น แต่คือสัญญาที่บอกว่าผลลัพธ์ต้องเป็นอะไร อยู่ใต้ข้อจำกัดใด และตรวจเสร็จอย่างไร",
       formula: ["OUTCOME", "CONSTRAINTS", "VERIFICATION"],
@@ -375,7 +351,7 @@
       id: "repeat-after-proof",
       chapter: "workflows",
       type: "focus",
-      eyebrow: "WORKFLOWS / 04",
+      eyebrow: "WORKFLOWS / 03",
       title: "ทำให้ดีหนึ่งครั้ง\nแล้วค่อยตั้งให้ทำซ้ำ",
       lead: "Scheduled task ที่ดีเริ่มจาก prompt ที่ผ่านการทดลอง มี source ที่เข้าถึงได้ และรู้ว่าจะรายงานหรือหยุดถามเมื่อใด",
       statement: "TEST → SCHEDULE → REVIEW → TUNE",
@@ -386,7 +362,7 @@
       id: "answer-to-experience",
       chapter: "workflows",
       type: "versus",
-      eyebrow: "WORKFLOWS / 05",
+      eyebrow: "WORKFLOWS / 04",
       title: "จากคำตอบ\nสู่สิ่งที่เปิดใช้ได้จริง",
       lead: "Visualizations เหมาะกับการสำรวจความสัมพันธ์ใน chat; Sites เหมาะกับ durable hosted experience ที่ต้องแชร์และกลับมาใช้ต่อ",
       choices: [
@@ -399,7 +375,7 @@
       id: "ambient-control",
       chapter: "workflows",
       type: "signals",
-      eyebrow: "WORKFLOWS / 06",
+      eyebrow: "WORKFLOWS / 05",
       title: "ไม่ต้องเฝ้าหน้าจอ\nก็รู้ว่างานไปถึงไหน",
       lead: "เลือก signal ให้เหมาะกับระดับความสนใจ: notification สำหรับเหตุการณ์, Pet สำหรับ ambient status, Codex Micro สำหรับ physical control",
       signals: [
@@ -439,9 +415,9 @@
       type: "focus",
       eyebrow: "CAPABILITIES / GUI",
       title: "เมื่อ Workflow\nอยู่ใน GUI",
-      lead: "Computer use เติมช่องว่างเมื่อไม่มี API, CLI หรือ plugin ที่เหมาะกว่า—แต่ทุก click ยังต้องอยู่ใต้ permission และการ review ของคุณ",
+      lead: "Computer use เติมช่องว่างเมื่อไม่มี API, CLI หรือ plugin ที่เหมาะกว่า; งานที่ต้องอาศัย screenshot หรือ visual judgment มากควรเลือก GPT-6 Astra เมื่อพร้อมใช้",
       statement: "SEE → DECIDE → ACT → VERIFY",
-      points: ["ใช้ structured integration ก่อนเมื่อมี", "กำหนดจุดที่ต้องหยุดขอ approval", "ตรวจ state หลัง action ทุกครั้ง"],
+      points: ["เลือก GPT-6 Astra สำหรับงาน visual ที่ยาก", "กำหนดจุดที่ต้องหยุดขอ approval", "ตรวจ state หลัง action ทุกครั้ง"],
       featureIds: ["computer-use"]
     },
     {
@@ -535,7 +511,7 @@
       type: "finder",
       eyebrow: "INTERACTIVE INDEX",
       title: "ควรใช้ Feature ไหน?",
-      lead: "ค้นหรือกรอง 23 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
+      lead: "ค้นหรือกรอง 22 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
       featureIds: features.map((feature) => feature.id)
     },
     {
@@ -569,10 +545,10 @@
   window.FEATURE_ATLAS = {
     meta: {
       title: "ChatGPT + Codex Features",
-      description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
+      description: "Web Slide ภาษาไทยอธิบาย 22 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "31 สิงหาคม 2026",
-      counts: { workflows: 9, capabilities: 10, reference: 4 }
+      checkedAt: "7 กันยายน 2026",
+      counts: { workflows: 8, capabilities: 10, reference: 4 }
     },
     categories: {
       workflows: { label: "Workflows", thai: "จัดงานให้เดินต่อ", code: "W" },

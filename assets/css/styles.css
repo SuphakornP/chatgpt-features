@@ -2908,7 +2908,7 @@ body[data-mode="read"] .slide__frame {
   }
 
   .utility-button--accent::after {
-    content: "23";
+    content: "22";
     font-size: 0.7rem;
     font-weight: 600;
   }
