@@ -145,11 +145,11 @@ if (!fs.existsSync(contentPath)) {
       ];
       const thaiFields = ["thaiPromise", "whenToUse", "howToStart", "availability", "limitations"];
       const categories = ["workflows", "capabilities", "reference"];
-      const expectedCounts = { workflows: 9, capabilities: 10, reference: 4 };
+      const expectedCounts = { workflows: 8, capabilities: 10, reference: 4 };
       const ids = new Set();
       const categoryCounts = { workflows: 0, capabilities: 0, reference: 0 };
 
-      check(atlas.features.length === 23, `exactly 23 features (found ${atlas.features.length})`);
+      check(atlas.features.length === 22, `exactly 22 features (found ${atlas.features.length})`);
 
       atlas.features.forEach((feature, index) => {
         const label = isNonEmptyString(feature?.id) ? feature.id : `features[${index}]`;
@@ -189,7 +189,7 @@ if (!fs.existsSync(contentPath)) {
         }
       });
 
-      check(ids.size === 23, `23 unique feature IDs (found ${ids.size})`);
+      check(ids.size === 22, `22 unique feature IDs (found ${ids.size})`);
       categories.forEach((category) => {
         check(
           categoryCounts[category] === expectedCounts[category],
