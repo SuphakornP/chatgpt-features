@@ -2287,6 +2287,7 @@ body[data-mode="read"] .deck {
 
 body[data-mode="read"] .slide {
   min-height: auto;
+  overflow-x: clip;
   scroll-snap-align: none;
   border-bottom: 1px solid var(--line);
 }
@@ -2908,7 +2909,7 @@ body[data-mode="read"] .slide__frame {
   }
 
   .utility-button--accent::after {
-    content: "22";
+    content: "23";
     font-size: 0.7rem;
     font-weight: 600;
   }
