@@ -16,6 +16,19 @@
       officialUrl: "https://learn.chatgpt.com/docs/projects"
     },
     {
+      id: "remote",
+      category: "workflows",
+      name: "Codex Remote",
+      thaiPromise: "เริ่ม ติดตาม ส่งคำสั่ง อนุมัติ และ review งาน Codex จากมือถือ โดยให้งานรันบน Mac หรือ Windows ที่เชื่อมต่ออยู่",
+      whenToUse: "เมื่อต้องออกจากโต๊ะแต่ยังอยากเริ่มงาน ดู progress ตอบคำถาม อนุมัติ action หรือตรวจ changed files, diffs และ test results",
+      howToStart: "เปิด Settings > Connections > Control this Mac or PC บน Desktop app แล้วเลือก Set up หรือ Add; จากนั้นสแกน QR ด้วย ChatGPT mobile app ใน account และ workspace เดียวกัน",
+      surfaces: ["ChatGPT mobile app", "iOS", "Android", "Desktop app", "macOS", "Windows"],
+      availability: "ขึ้นกับ rollout และ workspace settings; host ต้องเปิด Desktop app, awake, online และ sign in ด้วย account/workspace เดียวกัน",
+      limitations: "งานยังใช้ permission และ security policy ของ connected host; เครื่องที่ sleep, offline หรือปิด app จะหยุด remote access จนกว่าจะพร้อมอีกครั้ง",
+      prompt: "เปิดโปรเจกต์ checkout บน MacBook ตรวจ test ที่ล้มเหลว สรุปสาเหตุ และหยุดขออนุมัติก่อนแก้ไฟล์",
+      officialUrl: "https://learn.chatgpt.com/docs/remote"
+    },
+    {
       id: "sites",
       category: "workflows",
       name: "Sites",
@@ -50,7 +63,7 @@
       howToStart: "ทดสอบ prompt ใน chat ปกติก่อน แล้วสร้าง task ใน Scheduled; บน web/mobile เชื่อม app และบอก event ที่ต้องเฝ้า หรือเลือก schedule ตามเวลา",
       surfaces: ["Web", "Mobile", "Desktop app"],
       availability: "Event-triggered tasks ใช้ได้บน web และ mobile สำหรับ eligible plans ตาม workspace settings; local scheduled task ต้องเปิดเครื่องและ app ไว้",
-      limitations: "Event trigger ใช้ Gmail, Slack หรือ GitHub และห้ามรวมกับ time-based schedule ใน task เดียว; Desktop, CLI และ IDE สร้าง event-triggered task ไม่ได้; งานที่ pin gpt-5.4 หรือ gpt-5.4-mini ต้องย้าย model เพราะเลิกใช้กับ ChatGPT sign-in วันที่ 31 สิงหาคม 2026",
+      limitations: "Event trigger ใช้ Gmail, Slack หรือ GitHub และห้ามรวมกับ time-based schedule ใน task เดียว; Desktop, CLI และ IDE สร้าง event-triggered task ไม่ได้; GPT-5.5 เลิกใช้ 14 ตุลาคม 2026 และงาน Codex แบบ ChatGPT sign-in ควรย้ายเป็น gpt-5.6-sol",
       prompt: "เมื่อ pull request ที่ติด label urgent มี review หรือ commit ใหม่ ให้สรุปสิ่งที่เปลี่ยน ตรวจ blocker และรายงาน decision ที่ต้องมีคนเลือก",
       officialUrl: "https://learn.chatgpt.com/docs/automations"
     },
@@ -84,12 +97,12 @@
       id: "pets",
       category: "workflows",
       name: "Pets",
-      thaiPromise: "ใช้ animated companion เป็น ambient status สำหรับ Running, Needs input, Ready และ Blocked",
-      whenToUse: "เมื่ออยากมองเห็นสถานะหลาย chats แบบ glanceable โดยไม่เปิดหน้าจอหลักตลอดเวลา",
-      howToStart: "เลือก Pet ใน Settings แล้วใช้ /pet; Desktop มี floating pet และ activity tray ส่วน CLI ต้องใช้ terminal ที่รองรับ graphics",
+      thaiPromise: "ใช้ animated companion เพื่อเริ่ม Quick Chat ด้วยการพิมพ์หรือเสียง และตามสถานะ Running, Needs input, Ready และ Blocked",
+      whenToUse: "เมื่ออยากเริ่ม chat หรือมองเห็นสถานะหลาย chats แบบ glanceable โดยไม่เปิดหน้าต่างหลักตลอดเวลา",
+      howToStart: "เลือก Pet หรือ Mini ใน Settings แล้วใช้ /pet; บน desktop กด Option+Space ใน macOS หรือ Windows+Alt+P ใน Windows เพื่อเปิด Quick Chat ใช้ @ เพิ่ม context, $ เลือก skill และ bell ติดตาม threads",
       surfaces: ["Web Work", "Desktop app", "Codex CLI"],
-      availability: "ขึ้นกับ account/workspace และความสามารถของ terminal",
-      limitations: "Pet เปลี่ยนการแสดงสถานะ ไม่เปลี่ยนวิธีทำงานของ model; custom pet บน desktop เก็บ local และ IDE ไม่รองรับ",
+      availability: "floating controls ใช้ได้ใน Desktop app บน macOS และ Windows; web/CLI ขึ้นกับ account, workspace และความสามารถของ terminal",
+      limitations: "Quick Chat จาก floating controls อยู่นอก Project; Appshot ส่งเข้า controls ได้เฉพาะ macOS ส่วน Windows เปิดใน main app; custom pet บน desktop เก็บ local และ IDE ไม่รองรับ",
       prompt: "ใช้ Pet เพื่อติดตาม chat ที่กำลัง build และเตือนทันทีเมื่อ Needs input",
       officialUrl: "https://learn.chatgpt.com/docs/pets"
     },
@@ -101,7 +114,7 @@
       whenToUse: "ทีมที่ทำงานกับหลาย agent chats พร้อมกันและต้องการ physical status/control โดยไม่สลับหน้าต่าง",
       howToStart: "เชื่อม Codex Micro ผ่าน USB-C หรือ Bluetooth แล้วตั้งค่า Agent Keys, Command Keys, analog directions และไฟใน Settings",
       surfaces: ["Desktop app", "Physical hardware"],
-      availability: "Limited-run hardware; จำหน่าย while supplies last",
+      availability: "Codex Micro เป็น limited-run hardware ผ่าน OpenAI Supply Co; Desktop app รองรับ Creator Micro 2 ที่จำหน่ายโดย Work Louder ด้วย",
       limitations: "ต้องมีอุปกรณ์จริง; macOS ต้องให้ Input Monitoring และ push-to-talk ใช้ microphone ของคอมพิวเตอร์",
       prompt: "ตั้ง Agent Keys ให้ตามหก chats ล่าสุด และผูก Command Key หนึ่งปุ่มกับ skill สำหรับสรุปสถานะโครงการ",
       officialUrl: "https://learn.chatgpt.com/docs/features/codex-micro"
@@ -110,12 +123,12 @@
       id: "browser",
       category: "capabilities",
       name: "Browser",
-      thaiPromise: "ให้ ChatGPT เปิดเว็บไซต์ ใช้ Site tools เมื่อหน้ารองรับ อ่าน state ปัจจุบัน และทำ multi-step action โดยคุณยังควบคุมอยู่",
+      thaiPromise: "ให้ ChatGPT เปิดเว็บไซต์ อ่าน state ปัจจุบัน และทำ multi-step action โดยคุณยังควบคุมอยู่",
       whenToUse: "เปรียบเทียบตัวเลือก ทำงานบนเว็บไซต์ที่ต้อง sign in ตรวจ localhost หรือ review UI จากสิ่งที่ render จริง",
       howToStart: "เปิด built-in browser หรือเรียก @Browser ใน Desktop; บน web/mobile เริ่ม task ใน Work แล้ว sign in ผ่าน flow ที่ ChatGPT แสดงเมื่อเว็บไซต์ต้องยืนยันตัวตน",
       surfaces: ["Web Work", "Mobile Work", "Desktop app"],
-      availability: "Built-in browser ไม่มีใน Codex CLI และ IDE extension; website sign-in บน cloud browser ใช้ได้บน web/mobile สำหรับ Plus และ Pro ตาม rollout",
-      limitations: "Desktop และ cloud browser ใช้ profile แยกจาก browser ปกติ; Site tools ต้องใช้ GPT-5.6 Sol/Terra และไม่มีใน Enterprise/Edu; page/tool content เป็น untrusted input และ sensitive actions ต้อง review",
+      availability: "Built-in browser ไม่มีใน Codex CLI และ IDE extension; website sign-in บน cloud browser ใช้ได้บน web/mobile สำหรับ Plus และ Pro ตาม rollout; งาน visual judgment ควรเลือก GPT-6 Astra เมื่อมี",
+      limitations: "Built-in browser automate file upload ไม่ได้; browser และ cloud profiles แยกจาก browser ปกติ; บางเว็บบล็อก automation หรือใช้ CAPTCHA; page content เป็น untrusted input และ sensitive actions ต้อง review",
       prompt: "เปิด localhost ของโปรเจกต์ ตรวจ checkout ทั้ง desktop/mobile แล้วสรุป defect พร้อม screenshot และขั้นตอน reproduce",
       officialUrl: "https://learn.chatgpt.com/docs/browser"
     },
@@ -138,10 +151,10 @@
       name: "ChatGPT Voice",
       thaiPromise: "สนทนาด้วยเสียงเพื่อเริ่มงาน เช็ก progress เปลี่ยนทิศทาง หรือ delegate งานใน Chat, Work และ Codex",
       whenToUse: "brainstorm ขณะเดินทาง, hands-free status check หรือ steering งานโดยไม่กลับมาพิมพ์",
-      howToStart: "เริ่ม chat ใน Voice mode บน Desktop app; iOS ใช้ผ่าน Remote หลัง pair กับเครื่อง",
+      howToStart: "เลือก Start voice chat ใน task เดิมหรือ Start new voice chat ใน task ใหม่บน Desktop app; Voice ใช้ conversation และ selected model ของ task นั้น ส่วน iOS ใช้ผ่าน Remote หลัง pair กับเครื่อง",
       surfaces: ["Desktop app", "Remote on iOS"],
       availability: "มีใน Plus, Pro, Business, Edu และ Enterprise ตาม rollout/workspace",
-      limitations: "เปิด Voice chat ได้ทีละหนึ่ง chat; voice allowance แยกเป็น rolling window และ task ยังใช้ Codex usage budget",
+      limitations: "เปิด Voice chat ได้ทีละหนึ่ง chat; availability ขึ้นกับ plan, rollout และ workspace รวมถึง microphone และ Appshots permissions ที่เกี่ยวข้อง",
       prompt: "เปิด Voice แล้วถามสถานะ goal นี้ สรุป blocker และเปลี่ยนลำดับให้แก้ mobile regression ก่อน",
       officialUrl: "https://learn.chatgpt.com/docs/features/voice"
     },
@@ -179,8 +192,8 @@
       whenToUse: "เมื่อ workflow ต้องการ visual output ใหม่ หรือแก้ภาพเดิมแบบเจาะจงโดยยังเก็บ reference ไว้",
       howToStart: "อธิบาย subject, composition, style, constraints และ output use; ใน Codex เรียก $imagegen และแนบภาพด้วย -i/--image เมื่อมี reference",
       surfaces: ["Web", "Desktop app", "Codex CLI", "IDE extension"],
-      availability: "Availability และ limits ขึ้นกับ plan/workspace; local Codex ใช้ model ที่ระบบกำหนด",
-      limitations: "Image generation ใช้ usage มากกว่าข้อความโดยเฉลี่ย; production typography ต้องตรวจทุกคำและอาจต้องเก็บงานต่อใน design tool",
+      availability: "บน ChatGPT web ขึ้นกับ plan/workspace; built-in generation ใน Codex ใช้ gpt-image-2 และ batch ใหญ่สามารถใช้ OPENAI_API_KEY ตาม API pricing",
+      limitations: "Image generation ใช้ general Codex included limits เร็วกว่างานคล้ายกันที่ไม่สร้างภาพเฉลี่ย 3–5 เท่าตาม quality/size; production typography ต้องตรวจทุกคำ",
       prompt: "$imagegen สร้าง hero background 16:9 แบบ editorial-tech ไม่มีตัวอักษร มีพื้นที่สงบฝั่งซ้ายสำหรับ headline",
       officialUrl: "https://learn.chatgpt.com/docs/image-generation"
     },
@@ -201,12 +214,12 @@
       id: "appshots",
       category: "capabilities",
       name: "Appshots",
-      thaiPromise: "จับ frontmost macOS window พร้อม screenshot และ accessibility text ที่มี เพื่อส่ง state ของแอปเข้า chat",
+      thaiPromise: "จับ frontmost app window บน macOS หรือ Windows พร้อม screenshot และ available text เพื่อส่ง state ของแอปเข้า chat",
       whenToUse: "อธิบาย error/settings state, ขอให้ช่วยอ่านเอกสารหรือ UI ที่เปิดอยู่ และชี้จุดแก้โดยไม่ต้องเล่าใหม่ทั้งหมด",
-      howToStart: "ให้ Desktop app สิทธิ์ Screen & System Audio Recording และ Accessibility แล้วสร้าง Appshot จากหน้าต่างที่ต้องการ",
-      surfaces: ["Desktop app", "macOS"],
-      availability: "สร้าง Appshot ใหม่ได้บน macOS Desktop app เท่านั้น",
-      limitations: "บาง web apps ส่งได้เพียง visible screenshot ไม่ใช่เนื้อหานอกจอ; CLI resume chat ที่มี Appshot ได้แต่สร้างใหม่ไม่ได้",
+      howToStart: "นำหน้าต่างเป้าหมายขึ้นหน้า แล้วกด Command ทั้งสองปุ่มพร้อมกันบน macOS หรือ Alt ทั้งสองปุ่มบน Windows; macOS อาจขอ Screen & System Audio Recording และ Accessibility",
+      surfaces: ["Desktop app", "macOS", "Windows"],
+      availability: "สร้าง Appshot ใหม่ได้ใน Desktop app บน macOS และ Windows โดย organization อาจปิดความสามารถนี้",
+      limitations: "Appshot เข้า floating controls ได้เฉพาะ macOS ส่วน Windows เปิดใน main app; บาง web apps ส่งได้เพียง visible screenshot และ CLI สร้าง Appshot ใหม่ไม่ได้",
       prompt: "ใช้ Appshot จากหน้าต่าง design tool นี้ แล้วเทียบ implementation กับ spacing, alignment และ typography ที่เห็น",
       officialUrl: "https://learn.chatgpt.com/docs/appshots"
     },
@@ -243,10 +256,10 @@
       thaiPromise: "ใช้ keyboard shortcuts, command menu และ codex:// deep links เพื่อเดินทางและสั่งงาน Desktop app ได้เร็วขึ้น",
       whenToUse: "เปิด chat/settings/folder, ค้น chat, toggle panels หรือ share deep link ให้ทีมเข้าจุดเดียวกัน",
       howToStart: "เปิด Command menu ด้วย Cmd/Ctrl+Shift+P หรือ Cmd/Ctrl+K; ดูและแก้ shortcuts ใน Settings",
-      surfaces: ["Desktop app", "macOS", "Windows"],
+      surfaces: ["Desktop app", "macOS", "Windows", "Linux"],
       availability: "Shortcut บางรายการต่างกันตาม OS และสามารถ customize/reset ได้",
-      limitations: "Deep-link parameter ต้อง encode และ unsupported path จะไม่ทำงานตามที่คาด จึงควรอ้าง reference ก่อนแชร์",
-      prompt: "ใช้ Cmd/Ctrl+G ค้น chat เก่า, Cmd/Ctrl+F หาใน chat ปัจจุบัน และ Ctrl+` เปิด terminal",
+      limitations: "Search chats ไม่มี default shortcut; Deep-link parameter ต้อง encode และ experimental native Wayland อาจกระทบ shortcut บน Linux",
+      prompt: "ใช้ Cmd/Ctrl+F หาใน chat ปัจจุบัน, Cmd/Ctrl+G ไปผลลัพธ์ถัดไป และกำหนด shortcut สำหรับ Search chats ใน Settings > Keyboard Shortcuts",
       officialUrl: "https://learn.chatgpt.com/docs/reference/commands"
     },
     {
@@ -296,7 +309,7 @@
       chapter: "intro",
       type: "cover",
       eyebrow: "CHATGPT + CODEX / FEATURE",
-      title: "22 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
+      title: "23 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
       author: "Suphakorn P.",
       featureIds: []
@@ -337,10 +350,21 @@
       featureIds: ["projects"]
     },
     {
+      id: "work-from-phone",
+      chapter: "workflows",
+      type: "focus",
+      eyebrow: "WORKFLOWS / 02",
+      title: "ลุกจากโต๊ะได้\nแต่งานยังเดินต่อ",
+      lead: "Codex Remote เชื่อม ChatGPT mobile app กับ Mac หรือ Windows ที่ awake และ online เพื่อเริ่ม ส่งคำสั่ง อนุมัติ และ review โดย execution ยังอยู่บน host เดิม",
+      statement: "PHONE → CONNECTED HOST → REVIEW",
+      points: ["เลือก computer และ project จากมือถือ", "ติดตาม progress ตอบคำถาม และอนุมัติ action", "ตรวจ changed files, diffs และ test results ก่อนตัดสินใจ"],
+      featureIds: ["remote"]
+    },
+    {
       id: "define-done",
       chapter: "workflows",
       type: "goal",
-      eyebrow: "WORKFLOWS / 02",
+      eyebrow: "WORKFLOWS / 03",
       title: "ให้งานเดินต่อ\nพร้อม Definition of Done",
       lead: "/goal ไม่ใช่คำสั่งให้ทำงานนานขึ้น แต่คือสัญญาที่บอกว่าผลลัพธ์ต้องเป็นอะไร อยู่ใต้ข้อจำกัดใด และตรวจเสร็จอย่างไร",
       formula: ["OUTCOME", "CONSTRAINTS", "VERIFICATION"],
@@ -351,7 +375,7 @@
       id: "repeat-after-proof",
       chapter: "workflows",
       type: "focus",
-      eyebrow: "WORKFLOWS / 03",
+      eyebrow: "WORKFLOWS / 04",
       title: "ทำให้ดีหนึ่งครั้ง\nแล้วค่อยตั้งให้ทำซ้ำ",
       lead: "Scheduled task ที่ดีเริ่มจาก prompt ที่ผ่านการทดลอง มี source ที่เข้าถึงได้ และรู้ว่าจะรายงานหรือหยุดถามเมื่อใด",
       statement: "TEST → SCHEDULE → REVIEW → TUNE",
@@ -362,7 +386,7 @@
       id: "answer-to-experience",
       chapter: "workflows",
       type: "versus",
-      eyebrow: "WORKFLOWS / 04",
+      eyebrow: "WORKFLOWS / 05",
       title: "จากคำตอบ\nสู่สิ่งที่เปิดใช้ได้จริง",
       lead: "Visualizations เหมาะกับการสำรวจความสัมพันธ์ใน chat; Sites เหมาะกับ durable hosted experience ที่ต้องแชร์และกลับมาใช้ต่อ",
       choices: [
@@ -375,12 +399,12 @@
       id: "ambient-control",
       chapter: "workflows",
       type: "signals",
-      eyebrow: "WORKFLOWS / 05",
+      eyebrow: "WORKFLOWS / 06",
       title: "ไม่ต้องเฝ้าหน้าจอ\nก็รู้ว่างานไปถึงไหน",
-      lead: "เลือก signal ให้เหมาะกับระดับความสนใจ: notification สำหรับเหตุการณ์, Pet สำหรับ ambient status, Codex Micro สำหรับ physical control",
+      lead: "เลือก signal ให้เหมาะกับระดับความสนใจ: notification สำหรับเหตุการณ์, Pet สำหรับ Quick Chat และ activity, Codex Micro สำหรับ physical control",
       signals: [
         { featureId: "notifications", code: "PING", state: "Needs attention" },
-        { featureId: "pets", code: "GLOW", state: "Ambient status" },
+        { featureId: "pets", code: "GLOW", state: "Quick chat + activity" },
         { featureId: "codex-micro", code: "TOUCH", state: "Physical control" }
       ],
       featureIds: ["notifications", "pets", "codex-micro"]
@@ -426,7 +450,7 @@
       type: "versus",
       eyebrow: "CAPABILITIES / CONTEXT",
       title: "พูดสิ่งที่ต้องการ\nแสดงสิ่งที่เห็น",
-      lead: "Voice ช่วย steer งานโดยไม่พิมพ์ ส่วน Appshots ส่ง state ของหน้าต่าง macOS เข้า chat พร้อม visual context",
+      lead: "Voice ช่วย steer งานโดยไม่พิมพ์ ส่วน Appshots ส่ง state ของหน้าต่าง macOS หรือ Windows เข้า chat พร้อม visual context",
       choices: [
         { featureId: "voice", label: "VOICE", value: "start · check · steer · delegate" },
         { featureId: "appshots", label: "APPSHOT", value: "capture · inspect · annotate · fix" }
@@ -511,7 +535,7 @@
       type: "finder",
       eyebrow: "INTERACTIVE INDEX",
       title: "ควรใช้ Feature ไหน?",
-      lead: "ค้นหรือกรอง 22 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
+      lead: "ค้นหรือกรอง 23 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
       featureIds: features.map((feature) => feature.id)
     },
     {
@@ -545,10 +569,10 @@
   window.FEATURE_ATLAS = {
     meta: {
       title: "ChatGPT + Codex Features",
-      description: "Web Slide ภาษาไทยอธิบาย 22 Features จากเอกสารทางการ OpenAI",
+      description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "7 กันยายน 2026",
-      counts: { workflows: 8, capabilities: 10, reference: 4 }
+      checkedAt: "21 กันยายน 2026",
+      counts: { workflows: 9, capabilities: 10, reference: 4 }
     },
     categories: {
       workflows: { label: "Workflows", thai: "จัดงานให้เดินต่อ", code: "W" },
