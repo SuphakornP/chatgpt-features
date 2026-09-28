@@ -42,6 +42,19 @@
       officialUrl: "https://learn.chatgpt.com/docs/sites"
     },
     {
+      id: "build-plugins",
+      category: "workflows",
+      name: "Build plugins",
+      thaiPromise: "เปลี่ยน workflow ที่ทำซ้ำให้เป็น reusable plugin โดยรวม instructions, reference material และ apps หรือ skills ที่จำเป็นไว้ด้วยกัน",
+      whenToUse: "เมื่อต้องการให้ ChatGPT ทำงานเดิมตามโครงสร้าง กฎ และตัวอย่างชุดเดียวกัน หรือเตรียม workflow ให้ทีมติดตั้งใช้ต่อ",
+      howToStart: "บน ChatGPT web ใน Chat หรือ Work ให้ @ mention Plugin Creator แล้วบอก purpose, inputs, output และ rules พร้อมแนบ template หรือ example จากนั้นทดสอบและปรับก่อนแชร์",
+      surfaces: ["Web", "Chat", "ChatGPT Work"],
+      availability: "ต้องมีสิทธิ์ Use plugins และ Plugin Creator ต้องเปิดใน workspace; การแก้ plugin เดิมต้องมี edit access",
+      limitations: "Workspace plugin ใหม่เริ่มเป็น private; การแชร์และเพิ่มเข้า workspace directory ต้องมี permission แยก; app ใน plugin ไม่เพิ่มสิทธิ์เข้าถึงข้อมูล และผู้ใช้แต่ละคนยังต้อง install, connect และมี access ที่จำเป็น",
+      prompt: "@Plugin Creator สร้าง plugin ชื่อ Weekly Brief รับเอกสารที่แนบ สรุปเป็น Overview, Key points และ Open questions ตาม template นี้ หากข้อมูลไม่มีให้ระบุว่าไม่พบ และห้ามแก้ source",
+      officialUrl: "https://learn.chatgpt.com/docs/build-plugins"
+    },
+    {
       id: "visualizations",
       category: "workflows",
       name: "Visualizations",
@@ -63,7 +76,7 @@
       howToStart: "ทดสอบ prompt ใน chat ปกติก่อน แล้วสร้าง task ใน Scheduled; บน web/mobile เชื่อม app และบอก event ที่ต้องเฝ้า หรือเลือก schedule ตามเวลา",
       surfaces: ["Web", "Mobile", "Desktop app"],
       availability: "Event-triggered tasks ใช้ได้บน web และ mobile สำหรับ eligible plans ตาม workspace settings; local scheduled task ต้องเปิดเครื่องและ app ไว้",
-      limitations: "Event trigger ใช้ Gmail, Slack หรือ GitHub และห้ามรวมกับ time-based schedule ใน task เดียว; Desktop, CLI และ IDE สร้าง event-triggered task ไม่ได้; GPT-5.5 เลิกใช้ 14 ตุลาคม 2026 และงาน Codex แบบ ChatGPT sign-in ควรย้ายเป็น gpt-5.6-sol",
+      limitations: "Event trigger ใช้ Gmail, Slack หรือ GitHub และห้ามรวมกับ time-based schedule ใน task เดียว; Desktop, CLI และ IDE สร้าง event-triggered task ไม่ได้; GPT-5.5 เลิกใช้ 14 ตุลาคม 2026 และงาน Codex แบบ ChatGPT sign-in ควรย้ายเป็น gpt-6-sol เมื่อ plan และ workspace รองรับ",
       prompt: "เมื่อ pull request ที่ติด label urgent มี review หรือ commit ใหม่ ให้สรุปสิ่งที่เปลี่ยน ตรวจ blocker และรายงาน decision ที่ต้องมีคนเลือก",
       officialUrl: "https://learn.chatgpt.com/docs/automations"
     },
@@ -309,7 +322,7 @@
       chapter: "intro",
       type: "cover",
       eyebrow: "CHATGPT + CODEX / FEATURE",
-      title: "23 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
+      title: "24 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
       author: "Suphakorn P.",
       featureIds: []
@@ -372,10 +385,21 @@
       featureIds: ["long-running-work"]
     },
     {
-      id: "repeat-after-proof",
+      id: "build-repeatable-workflows",
       chapter: "workflows",
       type: "focus",
       eyebrow: "WORKFLOWS / 04",
+      title: "อธิบายหนึ่งครั้ง\nแล้วใช้ Workflow ซ้ำได้",
+      lead: "Build plugins ใช้ Plugin Creator เปลี่ยน purpose, inputs, output, rules, examples และ reference material ให้เป็น workflow ที่เรียกใช้ซ้ำได้โดยไม่ต้องเขียน code",
+      statement: "DESCRIBE → BUILD → TEST → SHARE",
+      points: ["เริ่มจากหนึ่ง workflow ที่ขอบเขตชัด", "ทดสอบกับ input จริงก่อนแชร์", "apps ยังใช้สิทธิ์และ connection เดิมของแต่ละคน"],
+      featureIds: ["build-plugins"]
+    },
+    {
+      id: "repeat-after-proof",
+      chapter: "workflows",
+      type: "focus",
+      eyebrow: "WORKFLOWS / 05",
       title: "ทำให้ดีหนึ่งครั้ง\nแล้วค่อยตั้งให้ทำซ้ำ",
       lead: "Scheduled task ที่ดีเริ่มจาก prompt ที่ผ่านการทดลอง มี source ที่เข้าถึงได้ และรู้ว่าจะรายงานหรือหยุดถามเมื่อใด",
       statement: "TEST → SCHEDULE → REVIEW → TUNE",
@@ -386,7 +410,7 @@
       id: "answer-to-experience",
       chapter: "workflows",
       type: "versus",
-      eyebrow: "WORKFLOWS / 05",
+      eyebrow: "WORKFLOWS / 06",
       title: "จากคำตอบ\nสู่สิ่งที่เปิดใช้ได้จริง",
       lead: "Visualizations เหมาะกับการสำรวจความสัมพันธ์ใน chat; Sites เหมาะกับ durable hosted experience ที่ต้องแชร์และกลับมาใช้ต่อ",
       choices: [
@@ -399,7 +423,7 @@
       id: "ambient-control",
       chapter: "workflows",
       type: "signals",
-      eyebrow: "WORKFLOWS / 06",
+      eyebrow: "WORKFLOWS / 07",
       title: "ไม่ต้องเฝ้าหน้าจอ\nก็รู้ว่างานไปถึงไหน",
       lead: "เลือก signal ให้เหมาะกับระดับความสนใจ: notification สำหรับเหตุการณ์, Pet สำหรับ Quick Chat และ activity, Codex Micro สำหรับ physical control",
       signals: [
@@ -535,7 +559,7 @@
       type: "finder",
       eyebrow: "INTERACTIVE INDEX",
       title: "ควรใช้ Feature ไหน?",
-      lead: "ค้นหรือกรอง 23 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
+      lead: "ค้นหรือกรอง 24 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
       featureIds: features.map((feature) => feature.id)
     },
     {
@@ -569,10 +593,10 @@
   window.FEATURE_ATLAS = {
     meta: {
       title: "ChatGPT + Codex Features",
-      description: "Web Slide ภาษาไทยอธิบาย 23 Features จากเอกสารทางการ OpenAI",
+      description: "Web Slide ภาษาไทยอธิบาย 24 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "21 กันยายน 2026",
-      counts: { workflows: 9, capabilities: 10, reference: 4 }
+      checkedAt: "28 กันยายน 2026",
+      counts: { workflows: 10, capabilities: 10, reference: 4 }
     },
     categories: {
       workflows: { label: "Workflows", thai: "จัดงานให้เดินต่อ", code: "W" },
