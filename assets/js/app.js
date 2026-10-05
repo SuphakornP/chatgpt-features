@@ -11,9 +11,11 @@
     intro: { code: "00", name: "ORIENTATION" },
     workflows: { code: "01", name: "WORKFLOWS" },
     capabilities: { code: "02", name: "CAPABILITIES" },
-    reference: { code: "03", name: "REFERENCE" },
-    explore: { code: "04", name: "PUT IT TO WORK" },
-    sources: { code: "05", name: "OFFICIAL SOURCES" }
+    dots: { code: "03", name: "CHATGPT DOTS" },
+    space: { code: "04", name: "CHATGPT SPACE" },
+    reference: { code: "05", name: "REFERENCE" },
+    explore: { code: "06", name: "PUT IT TO WORK" },
+    sources: { code: "07", name: "OFFICIAL SOURCES" }
   };
 
   const deck = document.querySelector("#deck");
@@ -124,23 +126,23 @@
 
   function heroOrbit() {
     const total = atlas.features.length;
+    const categories = Object.entries(atlas.categories);
     const dots = Array.from({ length: total }, (_, index) => {
       const angle = (360 / total) * index;
       const ring = index % 3;
       return `<i style="--angle:${angle}deg;--ring:${ring}" aria-hidden="true"></i>`;
     }).join("");
+    const categoryLabels = categories.map(([, meta]) => meta.label).join(", ");
+    const categoryCounts = categories.map(([category, meta]) => `
+      <span>${String(atlas.meta.counts[category]).padStart(2, "0")} ${escapeHtml(meta.label.toLocaleUpperCase("en-US"))}</span>`).join("");
     return `
-      <figure class="orbit" aria-label="แผนที่ Features ${total} หัวข้อ แบ่งเป็น Workflows, Capabilities และ Reference">
+      <figure class="orbit" aria-label="แผนที่ Features ${total} หัวข้อ แบ่งเป็น ${escapeHtml(categoryLabels)}">
         <div class="orbit__ring orbit__ring--outer"></div>
         <div class="orbit__ring orbit__ring--middle"></div>
         <div class="orbit__ring orbit__ring--inner"></div>
         <div class="orbit__nodes">${dots}</div>
         <div class="orbit__core"><span>${total}</span><small>FEATURES</small></div>
-        <figcaption>
-          <span>${String(atlas.meta.counts.workflows).padStart(2, "0")} WORKFLOWS</span>
-          <span>${String(atlas.meta.counts.capabilities).padStart(2, "0")} CAPABILITIES</span>
-          <span>${String(atlas.meta.counts.reference).padStart(2, "0")} REFERENCE</span>
-        </figcaption>
+        <figcaption>${categoryCounts}</figcaption>
       </figure>`;
   }
 

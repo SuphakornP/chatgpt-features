@@ -32,13 +32,13 @@
       id: "sites",
       category: "workflows",
       name: "Sites",
-      thaiPromise: "เปลี่ยน prompt หรือ compatible project ให้เป็น website, web app หรือ game ที่สร้าง ปรับ และ publish ได้ใน ChatGPT",
-      whenToUse: "เมื่อผลลัพธ์ควรเป็น hosted experience ที่แชร์ เปิดใช้ซ้ำ หรือมี interaction มากกว่าคำตอบใน chat",
-      howToStart: "ระบุคำว่า website ใน prompt หรือเรียก @Sites แล้วบอก audience, purpose, behavior และข้อมูลที่ต้องใช้",
+      thaiPromise: "เปลี่ยน prompt หรือ compatible project ให้เป็น hosted website, web app หรือ game ที่ publish, แชร์ และเชื่อมข้อมูลของผู้ชมแต่ละคนผ่าน plugins ได้",
+      whenToUse: "เมื่อผลลัพธ์ควรเป็น hosted experience ที่แชร์ เปิดใช้ซ้ำ มี interaction หรือแสดงข้อมูลจาก connected app ตามสิทธิ์ของผู้ชมแต่ละคน",
+      howToStart: "ระบุคำว่า website ใน prompt หรือเรียก @Sites แล้วบอก audience, purpose, behavior และข้อมูลที่ต้องใช้; ถ้าต้องใช้ connected data ให้ระบุ plugin และ audience ของ workspace",
       surfaces: ["Web", "Desktop app"],
-      availability: "Public beta สำหรับ Plus, Pro, Business, Enterprise และ Edu โดยมี usage limits ตาม plan; co-editing และ URL editing ขึ้นกับ account และ workspace",
-      limitations: "ทุก deployment URL เป็น production; editor อ่าน live database data และ publish งานต่อได้หลัง owner publish ครั้งแรก แต่เปลี่ยน audience, settings หรือ ownership ไม่ได้; CLI และ IDE ไม่มี Sites management view",
-      prompt: "@Sites สร้างเว็บไซต์ onboarding สำหรับทีมขาย มี checklist, progress ที่จำได้ และหน้า resource ที่ค้นหาได้",
+      availability: "Public beta สำหรับ Plus, Pro, Business, Enterprise และ Edu โดยมี usage limits ตาม plan; plugins ใน Sites ต้องเปิดใน workspace และ Site ต้อง private ต่อ workspace นั้น",
+      limitations: "ทุก deployment URL เป็น production; connected data ยังอยู่ใต้สิทธิ์ของผู้ชมแต่ละคน และ write action ต้องเปิดใช้พร้อม user action/consent; CLI และ IDE ไม่มี Sites management view",
+      prompt: "@Sites สร้าง dashboard งานที่รับผิดชอบจาก connected issue tracker แยกตาม priority มี filters, source links และ Refresh แล้ว publish แบบ private ให้ workspace",
       officialUrl: "https://learn.chatgpt.com/docs/sites"
     },
     {
@@ -175,14 +175,27 @@
       id: "plugins",
       category: "capabilities",
       name: "Plugins",
-      thaiPromise: "ติดตั้ง reusable workflow ที่ bundle skills, connectors และเครื่องมืออื่นให้ ChatGPT หรือ Codex เรียกใช้ได้ถูกวิธี",
+      thaiPromise: "ติดตั้ง reusable workflow ที่ bundle skills, MCP servers, browser extensions หรือ hooks ให้ ChatGPT และ Codex เรียกใช้ได้ถูกวิธี",
       whenToUse: "เมื่อต้องทำงานซ้ำด้วยขั้นตอนเฉพาะ เชื่อม Gmail/Drive/Slack/GitHub หรือให้ Codex และ Work อ่าน ค้นหา ร่าง และส่งข้อความผ่าน Apple Messages บน Mac",
       howToStart: "เปิด Plugins directory บน web/Desktop หรือใช้ /plugins ใน Codex CLI; บน mobile ใช้ plugin ที่มีใน account ผ่าน Chat หรือ Work และหลังติดตั้งให้เริ่ม chat/session ใหม่",
       surfaces: ["Web", "Desktop app", "Mobile", "Codex CLI"],
       availability: "ใช้ได้ใน Chat และ Work บน web, desktop และ mobile รวมถึง Codex ใน Desktop app และ Codex CLI; IDE extension ยังไม่รองรับ",
-      limitations: "Connector บางตัวต้อง authorize บริการภายนอก; Apple Messages ใช้ได้เฉพาะ Codex/Work ใน Apple Silicon Desktop app และควรคง per-send approval เพราะ Full access อาจทำให้ confirmation ส่งข้อความเปิดไม่ได้",
+      limitations: "MCP server บางตัวต้อง authorize บริการภายนอก; hooks ไม่รองรับใน cloud-orchestrated ChatGPT Work และ IDE extension ยังไม่รองรับ plugins; Apple Messages ควรคง per-send approval",
       prompt: "ใช้ Apple Messages plugin ค้นหาข้อความล่าสุดกับทีมโครงการ สรุปประเด็น และร่างคำตอบ แต่ขออนุมัติข้อความกับผู้รับก่อนส่ง",
       officialUrl: "https://learn.chatgpt.com/docs/plugins"
+    },
+    {
+      id: "sign-in-with-chatgpt",
+      category: "capabilities",
+      name: "Sign in with ChatGPT",
+      thaiPromise: "ใช้ ChatGPT account ลงชื่อเข้า app หรือ site ที่ร่วมรายการ และแยกอนุญาตให้บาง app ใช้ ChatGPT plan สำหรับ AI requests ที่รองรับ",
+      whenToUse: "เมื่อต้องสร้างหรือเชื่อม account กับ partner โดยไม่ตั้ง credential ใหม่ หรืออยากใช้ Codex / ChatGPT Work usage จาก plan เดิมใน app ที่รองรับ",
+      howToStart: "เลือก Continue with ChatGPT ใน app หรือ site ตรวจ account information ที่ขอ แล้วพิจารณา permission ใช้ ChatGPT plan แยกจาก permission สำหรับ sign-in",
+      surfaces: ["Participating apps", "Partner sites", "ChatGPT Settings"],
+      availability: "Sign-in อยู่ใน limited partner trial; การใช้ ChatGPT plan รองรับ eligible Plus และ Pro subscribers ใน supported apps",
+      limitations: "การใช้ plan นับรวมใน limits เดิมและ app อาจมีค่าบริการของตนเอง; permission นี้ไม่เปิด conversations หรือ memories และต้องจัดการ app access แยกจาก sign-in",
+      prompt: "ก่อนเชื่อม app นี้ ช่วยแยก permissions ที่ขอว่าเป็น sign-in หรือใช้ ChatGPT plan พร้อมบอกผลต่อ usage limit และวิธี disconnect",
+      officialUrl: "https://learn.chatgpt.com/docs/sign-in-with-chatgpt"
     },
     {
       id: "web-search",
@@ -263,6 +276,149 @@
       officialUrl: "https://learn.chatgpt.com/docs/artifacts-viewer"
     },
     {
+      id: "dots-overview",
+      category: "dots",
+      name: "Overview",
+      thaiPromise: "มอบ ongoing responsibility ให้ always-on agent ที่ทำงานต่อใน cloud ใช้ computer และ browser ของตัวเอง แล้วกลับมาหาเมื่อมีผลลัพธ์หรือ decision ที่ต้องการคุณ",
+      whenToUse: "งานที่ต้องติดตามหลายวัน เชื่อมข้อมูลจากหลายที่ หรือควรเดินต่อระหว่าง conversations โดยไม่ต้องเริ่ม context ใหม่ทุกครั้ง",
+      howToStart: "สร้าง dot ใน Desktop app หรือ desktop browser ตั้งชื่อและรูปลักษณ์ เชื่อม apps หรือ computer เท่าที่จำเป็น แล้วเริ่มจาก responsibility ที่มีแหล่งข้อมูลและขอบเขตชัดเจน",
+      surfaces: ["Desktop browser", "Desktop app", "Mobile app", "Slack", "Microsoft Teams"],
+      availability: "กำลัง rollout: Pro 100/200/500 สำหรับผู้ใช้อายุเกิน 18 ปีนอก EEA, UK และ Switzerland; Business Premium และ Enterprise rollout ทั่วโลก โดย Enterprise ต้องให้ admin เปิดใช้",
+      limitations: "Mobile web ไม่รองรับ; dot อาจทำผิดพลาดและทุก action ยังอยู่ใต้ permissions, approvals และ safeguards; การหยุดงานไม่ย้อน action ที่ทำเสร็จแล้ว",
+      prompt: "ช่วยดูแล launch plan นี้ต่อเนื่อง ติดตาม decisions, deadlines และสิ่งที่รอคำตอบ ร่างข้อความให้ review แต่ห้ามส่ง และแจ้งเฉพาะเรื่องที่ต้องตัดสินใจ",
+      officialUrl: "https://learn.chatgpt.com/docs/dots"
+    },
+    {
+      id: "dots-getting-started",
+      category: "dots",
+      name: "Getting started",
+      thaiPromise: "ตั้งค่า dot พร้อม context, apps, contact methods และ computer ที่จำเป็น แล้วเริ่มร่วมงานจาก responsibility แรกที่ตรวจผลได้",
+      whenToUse: "เมื่อสร้าง dot ใหม่หรือขยายจาก conversation ธรรมดาไปสู่งานที่ต้องติดตามและ follow through ต่อเนื่อง",
+      howToStart: "เปิด dots บน desktop เชื่อม email, calendar หรือ files ตามต้องใช้ เลือกว่าจะเชื่อม computer หรือไม่ แล้วอธิบาย outcome, sources, decisions และจังหวะแจ้งเตือน",
+      surfaces: ["Desktop browser", "Desktop app", "Mobile app"],
+      availability: "ต้องเป็น account ที่ได้รับ rollout; หลังสร้างบน desktop แล้วจึงใช้ dot เดิมใน mobile app ได้เมื่อมี supporting update",
+      limitations: "Mobile web ไม่รองรับ; app, messaging channel และ computer เป็นคนละ connection การเชื่อมอย่างหนึ่งไม่ให้สิทธิ์อีกอย่างโดยอัตโนมัติ",
+      prompt: "ช่วยดูแล offsite นี้ ใช้ plan และ venue emails เพื่อติดตาม decisions, deadlines และ unanswered questions แจ้งเมื่อฉันต้องตัดสินใจ และร่าง reply ไว้ให้ review",
+      officialUrl: "https://learn.chatgpt.com/docs/dots/getting-started"
+    },
+    {
+      id: "dots-messaging",
+      category: "dots",
+      name: "Messaging",
+      thaiPromise: "คุยกับ dot ตัวเดิมผ่าน ChatGPT, voice, Slack หรือ Microsoft Teams โดย memory ไม่เริ่มใหม่เมื่อเปลี่ยน channel",
+      whenToUse: "เมื่อต้อง steer งาน เช็ก progress หรือตัดสินใจจากอุปกรณ์และช่องทางที่สะดวกในขณะนั้น",
+      howToStart: "เปิด profile ของ dot แล้วเลือก Add เพื่อเชื่อม contact method; ใน Slack ใช้ DM หรือ mention ใน channel/thread และบอกให้ชัดว่าจะเฝ้าอะไร แจ้งที่ไหน และเมื่อใด",
+      surfaces: ["ChatGPT", "Voice", "Slack", "Microsoft Teams", "Mobile app"],
+      availability: "ChatGPT desktop/web และ voice ใช้ได้ตาม rollout; mobile ต้องมี supporting update; Texting ระบุว่า coming soon",
+      limitations: "ข้อความแต่ละ channel ไม่ mirror กัน; การเพิ่ม dot เข้า channel ไม่ได้สร้าง monitoring schedule และ dot ต้องตรวจ permission ก่อนแชร์ข้อมูลจาก private conversation ให้ผู้อื่น",
+      prompt: "เก็บ routine progress ไว้ใน ChatGPT แต่ส่ง Slack DM เมื่อ deadline เสี่ยงหรือมี decision ที่ต้องการฉัน พร้อมบอก source และทางเลือก",
+      officialUrl: "https://learn.chatgpt.com/docs/dots/channels"
+    },
+    {
+      id: "dots-tasks-memory",
+      category: "dots",
+      name: "Tasks and memory",
+      thaiPromise: "ให้ dot จัดหลาย responsibilities, ใช้ background agents, ทำ recurring work และรักษา notes เกี่ยวกับ preferences, decisions และงานต่อเนื่อง",
+      whenToUse: "งานที่ต้องสลับ priority, แบ่งทำ parallel, กลับมาต่อภายหลัง หรือมีทั้ง schedule และ event monitoring",
+      howToStart: "อธิบายผลลัพธ์และ sources; สำหรับ recurring task ระบุสิ่งที่ต้องตรวจ เวลาและ timezone สิ่งที่ควรแจ้ง และ destination แล้วขอให้ dot ยืนยัน saved schedule",
+      surfaces: ["ChatGPT", "Activity", "Scheduled", "Work", "Codex"],
+      availability: "ชนิด task ขึ้นกับ cloud environment, connected computer, apps และ permissions ที่ account มี",
+      limitations: "Completed run ไม่ยืนยันว่า outcome ส่งมอบสำเร็จ; task ใหม่ไม่ได้รับทุก conversation อัตโนมัติ และการหยุด active work แยกจากการยกเลิก schedule",
+      prompt: "ทุกวันจันทร์ 09:00 Asia/Bangkok ตรวจ launch tracker อัปเดต checklist และแจ้งเฉพาะ deadline ที่เสี่ยงหรือ decision ที่ต้องเลือก จากนั้นยืนยัน schedule ที่บันทึก",
+      officialUrl: "https://learn.chatgpt.com/docs/dots/tasks-and-memory"
+    },
+    {
+      id: "dots-computers-apps",
+      category: "dots",
+      name: "Computers and apps",
+      thaiPromise: "ใช้ cloud computer ของ dot เชื่อม personal computer เมื่อจำเป็น และเรียก plugins ด้วย account/permissions ที่อนุญาตไว้",
+      whenToUse: "เมื่องานต้องใช้ browser session, local files, code, desktop apps หรือข้อมูลจาก connected services",
+      howToStart: "เปิด profile ของ dot เพื่อ inspect cloud computer; เชื่อม personal computer ด้วย Allow access และติดตั้ง/เชื่อม plugin แต่ละตัวที่ต้องใช้",
+      surfaces: ["Dot cloud computer", "Desktop app", "Connected computer", "Plugins"],
+      availability: "เชื่อม personal computer ได้ครั้งละหนึ่งเครื่อง; เครื่องนั้นต้อง online และเปิด ChatGPT app เมื่อ dot ใช้ local resources",
+      limitations: "Cloud browser แยก sessions จาก personal browser; บางเว็บบล็อก cloud browser และ messaging connection ไม่ให้สิทธิ์ inbox, apps หรือ computer โดยอัตโนมัติ",
+      prompt: "ใช้ cloud computer ค้นข้อมูลก่อน หากเว็บบล็อก automation ค่อยขอใช้ connected computer และหยุดให้ฉัน sign in หรือ approve action ที่มีผลต่อ account",
+      officialUrl: "https://learn.chatgpt.com/docs/dots/computers-and-apps"
+    },
+    {
+      id: "dots-controls",
+      category: "dots",
+      name: "Controls",
+      thaiPromise: "ตรวจ Activity และ Scheduled work กำหนด custom rules เพิ่มเติม และแยกการ pause, stop, cancel หรือ delete ให้ตรงกับงานที่ต้องการหยุด",
+      whenToUse: "เมื่อต้อง review delegated work, จำกัด action ที่มีผลต่อ account, เปลี่ยน approval boundary หรือหยุดงานบางส่วน",
+      howToStart: "เปิด Activity เพื่อตรวจ task และ requests; เปิด Settings > Personalization > Custom rules เพื่อกำหนด boundary และเปิด Scheduled เพื่อจัดการ recurring tasks",
+      surfaces: ["Desktop app", "Activity", "Scheduled", "ChatGPT Settings"],
+      availability: "Custom rules และ workspace controls ขึ้นกับ account และนโยบายของ workspace; admin อาจปิดการแก้ rules",
+      limitations: "Rules ไม่เพิ่ม app/computer access และไม่ override safeguards; Pause หยุดเฉพาะ main task ไม่หยุด delegated tasks หรือ schedules ส่วน Delete ย้อนกลับไม่ได้",
+      prompt: "ตั้ง boundary ให้อ่านข้อมูลและร่างข้อความได้ แต่ต้องถามก่อนส่ง แก้ shared content หรือลบไฟล์ แล้วสรุป active tasks กับ schedules ที่ยังทำงานอยู่",
+      officialUrl: "https://learn.chatgpt.com/docs/dots/controls"
+    },
+    {
+      id: "space-overview",
+      category: "space",
+      name: "Space overview",
+      thaiPromise: "รวม Pages, files, spreadsheets, presentations, Sites และ images ไว้ในพื้นที่ที่คุณ ChatGPT และผู้ร่วมงานพัฒนางานร่วมกันได้",
+      whenToUse: "project handbook, research hub หรือชุดงานร่วมที่ต้องมีหลาย pages, shared sources และสิทธิ์เข้าถึงตามทีม",
+      howToStart: "เปิด Space สร้าง page เดี่ยวหรือ space สำหรับ topic/team แล้วเพิ่ม notes, files หรือ source links ก่อนชวน ChatGPT และ collaborators มาทำงาน",
+      surfaces: ["ChatGPT Space", "Pages", "Sites", "Connected apps"],
+      availability: "ต้องใช้ account หรือ workspace ที่เปิด Space; content types, connected apps และ sharing options ขึ้นกับ access และ workspace settings",
+      limitations: "การแชร์ page ไม่แชร์ private chats หรือ saved memory; linked files รักษาสิทธิ์เดิม แต่ content ที่คัดลอกหรือสรุปลง page จะมองเห็นตามสิทธิ์ของ page",
+      prompt: "สร้าง space สำหรับ launch project แยก overview, research, decisions และ meeting notes เชื่อม sources ที่เกี่ยวข้อง และระบุ open questions ที่ยังไม่มีหลักฐาน",
+      officialUrl: "https://learn.chatgpt.com/docs/space"
+    },
+    {
+      id: "space-getting-started",
+      category: "space",
+      name: "Getting started",
+      thaiPromise: "เริ่มจาก blank page, notes หรือ conversation แล้วเติม context ให้ ChatGPT จัดโครง สร้าง draft และเตรียมแชร์ด้วยสิทธิ์ที่เหมาะสม",
+      whenToUse: "เมื่อต้องเปลี่ยน material ที่กระจัดกระจายให้เป็น page ที่แก้ ตรวจ และส่งต่อได้ หรือรวมหลาย pages เป็น space เดียว",
+      howToStart: "เปิด Space > New page ตั้งชื่อ เพิ่ม notes/files/links แล้วเปิด ChatGPT ข้าง page; หากมีหลายหน้าให้สร้าง Space และกำหนดคนกับ access ก่อนแชร์ link",
+      surfaces: ["ChatGPT Space", "Pages"],
+      availability: "ต้องมี account ที่เปิด Space; recipients, Teams และระดับ permission ที่เลือกได้ขึ้นกับ account และ workspace",
+      limitations: "การ invite เข้า space ให้ access แก่ pages ใน space; หากต้องการแชร์เพียงหน้าเดียวให้ใช้ sharing controls ของ page และตรวจผลหลังบันทึก",
+      prompt: "จัด notes ใน page นี้เป็น draft ที่มี headings และ bullets รักษาข้อเท็จจริงกับ source links และรวบรวม open questions ไว้ท้ายหน้า",
+      officialUrl: "https://learn.chatgpt.com/docs/space/getting-started"
+    },
+    {
+      id: "space-pages",
+      category: "space",
+      name: "Pages",
+      thaiPromise: "สร้าง document แบบ block ที่คุณและ ChatGPT แก้ร่วมกัน พร้อม subpages, comments, mentions, prompts, tasks และ interactive visualizations",
+      whenToUse: "notes, plans, research, team handbook หรือ shared reference ที่ต้อง revise เป็นส่วน ๆ และกลับมาใช้ต่อ",
+      howToStart: "เลือก New page แล้วใช้ / menu เพิ่ม block; เลือกข้อความเพื่อ Ask for change หรือ Comment และใช้ @ mention คน, ChatGPT, dot, files หรือ chats",
+      surfaces: ["ChatGPT Space", "Pages"],
+      availability: "Blocks, attribution, agent mentions และ generated content บางชนิดขึ้นกับ access และ controls ที่ account มี",
+      limitations: "Generated text/images/visualizations ต้อง review ก่อนแชร์; page อาจ inherit access จาก parent หรือ space และการย้าย section ต้องตรวจขอบเขต block ที่ถูกย้าย",
+      prompt: "สร้าง page สรุป launch plan มี decision log, checklist, source links และ Prompt block สำหรับสรุป open decisions พร้อม subpage แยก customer research",
+      officialUrl: "https://learn.chatgpt.com/docs/space/pages"
+    },
+    {
+      id: "space-agents",
+      category: "space",
+      name: "Work with the agent",
+      thaiPromise: "ให้ ChatGPT หรือ dot ช่วย draft, research และ revise เนื้อหาใน Page ผ่าน side conversation, selection, inline mention หรือ comment",
+      whenToUse: "เมื่อต้องคุยก่อนแก้ทั้งหน้า แก้ข้อความเฉพาะส่วน หรือมอบ request ให้ agent ในจุดที่ collaborators มองเห็น context เดียวกัน",
+      howToStart: "เลือกวิธีขอให้ตรงขอบเขต: คุยข้าง page สำหรับงานใหญ่ ใช้ Ask for change กับ selection หรือพิมพ์ @ChatGPT/@dot ในหน้าและ comment สำหรับ request เฉพาะจุด",
+      surfaces: ["ChatGPT Space", "Pages", "ChatGPT", "Dots"],
+      availability: "Agents, connected tools และ inline controls ที่เสนอขึ้นกับ access ของแต่ละคน",
+      limitations: "Keep Updated ยังไม่มีตอน launch; เขียน cadence ใน page ไม่ได้สร้าง schedule ต้องตั้งใน chat แล้วตรวจ saved task, timing, enabled state และผลจาก run จริง",
+      prompt: "@ChatGPT ตรวจ source ที่ link ไว้ แล้วแก้เฉพาะย่อหน้าสรุปให้แยก confirmed facts, assumptions และ open questions โดยรักษา decisions เดิม",
+      officialUrl: "https://learn.chatgpt.com/docs/space/agents"
+    },
+    {
+      id: "space-collaboration",
+      category: "space",
+      name: "Collaboration",
+      thaiPromise: "แชร์ Page หรือ Space ด้วย View, Comment หรือ Edit แล้ว review เนื้อหา ความเห็น และ agent-assisted changes ร่วมกัน",
+      whenToUse: "เมื่อหลายคนต้องอ่าน ให้ feedback หรือร่วมแก้ชุด pages เดียวกันโดยมี ownership และ access ที่ชัดเจน",
+      howToStart: "เปิด sharing controls เพิ่มคนหรือ Team เลือกระดับ access บันทึก แล้วให้ collaborator ยืนยันว่าเปิดงานได้ด้วย permission ที่คาดไว้",
+      surfaces: ["ChatGPT Space", "Pages", "Sharing controls"],
+      availability: "Roles, recipient types, Teams และ sharing options ขึ้นกับ account, workspace และ permission ของผู้จัดการ access",
+      limitations: "ถอน direct invite อาจไม่ตัด inherited access จาก parent/space; access ของ linked source แยกจาก page และผู้ที่อ่าน page ได้อาจยังเปิด source ไม่ได้",
+      prompt: "ตรวจ sharing ของ space นี้ ระบุ direct กับ inherited access แยกกัน และเสนอสิทธิ์ขั้นต่ำสำหรับคนที่ต้องอ่าน comment หรือ edit โดยไม่เปลี่ยนค่าจนกว่าฉันอนุมัติ",
+      officialUrl: "https://learn.chatgpt.com/docs/space/collaboration"
+    },
+    {
       id: "commands",
       category: "reference",
       name: "Commands",
@@ -322,7 +478,7 @@
       chapter: "intro",
       type: "cover",
       eyebrow: "CHATGPT + CODEX / FEATURE",
-      title: "24 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
+      title: "36 Features.\nจากคำสั่งเดียว\nสู่ระบบงานที่เดินต่อได้",
       lead: "คู่มือภาษาไทยแบบ Web Slide สำหรับเลือกและใช้ Feature ให้ตรงกับงานจริง",
       author: "Suphakorn P.",
       featureIds: []
@@ -333,7 +489,7 @@
       type: "atlas",
       eyebrow: "THE SYSTEM, NOT JUST THE CHAT",
       title: "ChatGPT ไม่ได้มีแค่ช่องแชต",
-      lead: "Feature ทั้งหมดแบ่งเป็น 3 ชั้น: จัดงานให้เดินต่อ, เพิ่มความสามารถในการลงมือทำ และควบคุมระบบให้คล่อง",
+      lead: "Feature ทั้งหมดแบ่งเป็น 5 กลุ่ม: จัด workflow, เพิ่ม capability, มอบ responsibility ให้ dot, พัฒนางานร่วมกันใน Space และควบคุมระบบด้วย reference",
       featureIds: features.map((feature) => feature.id)
     },
     {
@@ -440,8 +596,8 @@
       eyebrow: "02 / CAPABILITIES",
       title: "เข้าใจ\nสร้าง\nและลงมือทำ",
       lead: "Capabilities คือเครื่องมือที่ทำให้ ChatGPT ออกไปเห็นข้อมูล ใช้ interface และสร้าง artifact ได้มากกว่าการตอบข้อความ",
-      count: "10",
-      featureIds: ["browser", "computer-use", "voice", "plugins", "web-search", "image-generation", "image-inputs", "appshots", "chrome-extension", "work-with-files"]
+      count: "11",
+      featureIds: ["browser", "computer-use", "voice", "plugins", "sign-in-with-chatgpt", "web-search", "image-generation", "image-inputs", "appshots", "chrome-extension", "work-with-files"]
     },
     {
       id: "three-webs",
@@ -518,10 +674,63 @@
       featureIds: ["plugins"]
     },
     {
+      id: "identity-with-boundaries",
+      chapter: "capabilities",
+      type: "focus",
+      eyebrow: "CAPABILITIES / IDENTITY",
+      title: "Sign in คือ identity\nPlan usage คืออีก permission",
+      lead: "Continue with ChatGPT ช่วยลดขั้นตอนสร้าง account แต่การอนุญาตใช้ ChatGPT plan ต้องพิจารณาแยก และยังนับรวมใน limit เดิม",
+      statement: "IDENTITY ≠ PLAN USAGE ≠ APP ACCESS",
+      points: ["อ่าน account information ที่ app ขอ", "แยก permission ใช้ plan จาก sign-in", "ตั้ง app limit และรู้วิธี disconnect"],
+      featureIds: ["sign-in-with-chatgpt"]
+    },
+    {
+      id: "dots",
+      chapter: "dots",
+      type: "chapter",
+      eyebrow: "03 / CHATGPT DOTS",
+      title: "มอบ Responsibility\nให้งานเดินต่อ\nระหว่างบทสนทนา",
+      lead: "dot คือ always-on agent ที่รักษา context, ประสาน tasks และกลับมาหาคุณเมื่อมีผลลัพธ์หรือ decision ที่ต้องใช้ judgment",
+      count: "06",
+      featureIds: ["dots-overview", "dots-getting-started", "dots-messaging", "dots-tasks-memory", "dots-computers-apps", "dots-controls"]
+    },
+    {
+      id: "dot-keeps-moving",
+      chapter: "dots",
+      type: "focus",
+      eyebrow: "CHATGPT DOTS / RESPONSIBILITY",
+      title: "ไม่ใช่แค่ตอบหนึ่งครั้ง\nแต่รับผิดชอบให้งานเดินต่อ",
+      lead: "เริ่มจาก responsibility ที่มี sources, boundaries และจังหวะขอ decision ชัดเจน แล้ว review สิ่งที่ dot ทำจริงเสมอ",
+      statement: "RESPONSIBILITY → FOLLOW THROUGH → DECISION",
+      points: ["กำหนด outcome และ source of truth", "บอกว่าอะไรต้องแจ้งหรือขอ approval", "ตรวจ Activity, schedules และผลลัพธ์จริง"],
+      featureIds: ["dots-overview", "dots-tasks-memory", "dots-controls"]
+    },
+    {
+      id: "space",
+      chapter: "space",
+      type: "chapter",
+      eyebrow: "04 / CHATGPT SPACE",
+      title: "รวม Pages และ Sources\nให้คนกับ Agent\nทำงานบน Context เดียวกัน",
+      lead: "Space ทำให้ draft, files, shared pages, Sites และ collaboration อยู่ในพื้นที่เดียว โดยยังรักษาขอบเขตการแชร์และ source permissions",
+      count: "05",
+      featureIds: ["space-overview", "space-getting-started", "space-pages", "space-agents", "space-collaboration"]
+    },
+    {
+      id: "shared-work-in-space",
+      chapter: "space",
+      type: "focus",
+      eyebrow: "CHATGPT SPACE / SHARED WORK",
+      title: "Shared Page ไม่ได้แปลว่า\nทุก Source ถูกแชร์ตาม",
+      lead: "จัด pages ให้หา context ง่าย กำหนด View, Comment หรือ Edit เท่าที่จำเป็น และตรวจ inherited access กับ linked sources แยกกัน",
+      statement: "CREATE → CONNECT → COLLABORATE → VERIFY ACCESS",
+      points: ["แยก page เดี่ยวกับ space ของทีม", "review agent edits ก่อนยอมรับ", "ตรวจ direct, inherited และ source access"],
+      featureIds: ["space-overview", "space-agents", "space-collaboration", "space-pages"]
+    },
+    {
       id: "reference",
       chapter: "reference",
       type: "chapter",
-      eyebrow: "03 / REFERENCE",
+      eyebrow: "05 / REFERENCE",
       title: "Control surface\nสำหรับคนที่อยาก\nทำงานเร็วขึ้น",
       lead: "Commands และ Settings ลดแรงเสียดทาน ส่วน Troubleshooting ทำให้รู้ว่าจะตรวจชั้นไหนเมื่อระบบไม่เป็นไปตามคาด",
       count: "04",
@@ -559,7 +768,7 @@
       type: "finder",
       eyebrow: "INTERACTIVE INDEX",
       title: "ควรใช้ Feature ไหน?",
-      lead: "ค้นหรือกรอง 24 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
+      lead: "ค้นหรือกรอง 36 Features แล้วเปิด detail เพื่อดู When to use, How to start, availability, limitations และ official source",
       featureIds: features.map((feature) => feature.id)
     },
     {
@@ -593,14 +802,16 @@
   window.FEATURE_ATLAS = {
     meta: {
       title: "ChatGPT + Codex Features",
-      description: "Web Slide ภาษาไทยอธิบาย 24 Features จากเอกสารทางการ OpenAI",
+      description: "Web Slide ภาษาไทยอธิบาย 36 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "28 กันยายน 2026",
-      counts: { workflows: 10, capabilities: 10, reference: 4 }
+      checkedAt: "5 ตุลาคม 2026",
+      counts: { workflows: 10, capabilities: 11, dots: 6, space: 5, reference: 4 }
     },
     categories: {
       workflows: { label: "Workflows", thai: "จัดงานให้เดินต่อ", code: "W" },
       capabilities: { label: "Capabilities", thai: "เข้าใจ สร้าง ลงมือทำ", code: "C" },
+      dots: { label: "ChatGPT dots", thai: "รับผิดชอบและติดตามต่อ", code: "D" },
+      space: { label: "ChatGPT Space", thai: "สร้างและร่วมงานบน Pages", code: "S" },
       reference: { label: "Reference", thai: "ควบคุมและแก้ปัญหา", code: "R" }
     },
     features,

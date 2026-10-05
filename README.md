@@ -1,6 +1,6 @@
 # ChatGPT Features
 
-คู่มือภาษาไทยแบบ Interactive Web Slide สำหรับทำความเข้าใจและเลือกใช้ 24 ChatGPT + Codex Features จากเอกสารทางการของ OpenAI โดยคงชื่อ Feature, prompt, product surface และ technical terms เป็นภาษาอังกฤษเมื่อการแปลทำให้ความหมายคลาดเคลื่อน
+คู่มือภาษาไทยแบบ Interactive Web Slide สำหรับทำความเข้าใจและเลือกใช้ 36 ChatGPT + Codex Features จากเอกสารทางการของ OpenAI โดยคงชื่อ Feature, prompt, product surface และ technical terms เป็นภาษาอังกฤษเมื่อการแปลทำให้ความหมายคลาดเคลื่อน
 
 จัดทำโดย **Suphakorn P.**
 
@@ -8,7 +8,7 @@
 
 ## จุดเด่น
 
-- ครบ 24 Features แบ่งเป็น `Workflows 10`, `Capabilities 10` และ `Reference 4`
+- ครบ 36 Features แบ่งเป็น `Workflows 10`, `Capabilities 11`, `ChatGPT dots 6`, `ChatGPT Space 5` และ `Reference 4`
 - นำเสนอได้ทั้ง Slide mode และหน้าอ่านต่อเนื่อง
 - มี Feature Explorer สำหรับค้นหา กรอง และเปิดรายละเอียดเชิงลึก
 - รองรับ keyboard navigation, touch, swipe และ deep links
@@ -91,7 +91,7 @@ chatgpt-features/
 
 ## QA
 
-- Content inventory และ category counts ครบ `10 / 10 / 4`
+- Content inventory และ category counts ครบ `10 / 11 / 6 / 5 / 4`
 - ทุก Feature มี official URL และเชื่อมกับ slide อย่างน้อยหนึ่งหน้า
 - JavaScript syntax และ deployment build ผ่าน
 - ตรวจ keyboard, scroll, search/filter, modal, deep links, Copy Prompt และ Read mode
