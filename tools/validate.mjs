@@ -144,12 +144,35 @@ if (!fs.existsSync(contentPath)) {
         "officialUrl",
       ];
       const thaiFields = ["thaiPromise", "whenToUse", "howToStart", "availability", "limitations"];
-      const categories = ["workflows", "capabilities", "reference"];
-      const expectedCounts = { workflows: 10, capabilities: 10, reference: 4 };
+      const expectedCounts = { workflows: 10, capabilities: 11, dots: 6, space: 5, reference: 4 };
+      const categories = Object.keys(expectedCounts);
+      const expectedTotal = Object.values(expectedCounts).reduce((sum, count) => sum + count, 0);
       const ids = new Set();
-      const categoryCounts = { workflows: 0, capabilities: 0, reference: 0 };
+      const categoryCounts = Object.fromEntries(categories.map((category) => [category, 0]));
 
-      check(atlas.features.length === 24, `exactly 24 features (found ${atlas.features.length})`);
+      const categoriesReady = check(isRecord(atlas.categories), "categories is an object");
+      if (categoriesReady) {
+        const categoryKeys = Object.keys(atlas.categories);
+        check(
+          categoryKeys.length === categories.length && categories.every((category) => categoryKeys.includes(category)),
+          `categories match the official inventory (${categories.join(", ")})`,
+        );
+        categories.forEach((category) => {
+          const metadata = atlas.categories[category];
+          check(
+            isRecord(metadata)
+              && isNonEmptyString(metadata.label)
+              && isNonEmptyString(metadata.thai)
+              && isNonEmptyString(metadata.code),
+            `categories.${category} has label, Thai description, and code`,
+          );
+        });
+      }
+
+      check(
+        atlas.features.length === expectedTotal,
+        `exactly ${expectedTotal} features (found ${atlas.features.length})`,
+      );
 
       atlas.features.forEach((feature, index) => {
         const label = isNonEmptyString(feature?.id) ? feature.id : `features[${index}]`;
@@ -173,7 +196,7 @@ if (!fs.existsSync(contentPath)) {
         }
 
         if (!categories.includes(feature.category)) {
-          fail(`${label}.category must be workflows, capabilities, or reference`);
+          fail(`${label}.category must be one of ${categories.join(", ")}`);
         } else {
           categoryCounts[feature.category] += 1;
         }
@@ -189,7 +212,12 @@ if (!fs.existsSync(contentPath)) {
         }
       });
 
-      check(ids.size === 24, `24 unique feature IDs (found ${ids.size})`);
+      check(ids.size === expectedTotal, `${expectedTotal} unique feature IDs (found ${ids.size})`);
+      const metaCountKeys = isRecord(atlas.meta?.counts) ? Object.keys(atlas.meta.counts) : [];
+      check(
+        metaCountKeys.length === categories.length && categories.every((category) => metaCountKeys.includes(category)),
+        "meta.counts contains exactly the official categories",
+      );
       categories.forEach((category) => {
         check(
           categoryCounts[category] === expectedCounts[category],
