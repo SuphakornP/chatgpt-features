@@ -8,25 +8,25 @@
       name: "Projects and chats",
       thaiPromise: "รวม chats, files, instructions และ sources ที่เกี่ยวข้องไว้ด้วยกัน เพื่อให้ context เดิมเดินทางต่อไปกับงาน",
       whenToUse: "งานต่อเนื่องหลาย deliverables, งานที่ใช้ source ชุดเดิมซ้ำ หรือ codebase ที่ต้องแยกหลาย chats ตาม outcome",
-      howToStart: "สร้าง Project แล้วเริ่ม chat ภายในนั้น; ใน Codex CLI ให้เริ่มจาก working directory ที่ต้องการ และใน IDE ให้เปิด workspace ที่ถูกต้อง",
-      surfaces: ["Web", "Desktop app", "Codex CLI", "IDE extension"],
-      availability: "รูปแบบ Project และสิทธิ์เข้าถึงไฟล์ต่างกันตาม surface",
-      limitations: "ChatGPT Project ไม่เข้าถึง local folder โดยตรงจนกว่าจะ upload หรือ connect source; Projects view ไม่มีใน CLI และ IDE extension",
+      howToStart: "สร้าง Project แล้วเริ่ม chat ภายในนั้น; ใน Desktop app สามารถ attach หลาย folders และเมื่อ workspace เปิด Local computer access with Work Cloud ให้เริ่ม task ใหม่เพื่อทำต่อผ่าน desktop, mobile หรือ web",
+      surfaces: ["Web", "Desktop app", "Mobile app", "Work Cloud", "Codex CLI", "IDE extension"],
+      availability: "รูปแบบ Project และสิทธิ์เข้าถึงไฟล์ต่างกันตาม surface; Work Cloud sync ขึ้นกับ workspace settings และใช้กับ task ใหม่ที่เข้าเงื่อนไข",
+      limitations: "ChatGPT Project บน web ไม่เข้าถึง local folder โดยตรง; conversation sync ไม่ได้ upload ทั้ง folder และขั้นตอนที่ต้องใช้ local files/tools ยังต้องมี connected computer; Projects view ไม่มีใน CLI และ IDE extension",
       prompt: "สร้าง Project สำหรับงานเปิดตัวสินค้า รวม brief, research และ brand guide แล้วแยก chat สำหรับ strategy, copy และ QA",
       officialUrl: "https://learn.chatgpt.com/docs/projects"
     },
     {
       id: "remote",
       category: "workflows",
-      name: "Codex Remote",
-      thaiPromise: "เริ่ม ติดตาม ส่งคำสั่ง อนุมัติ และ review งาน Codex จากมือถือ โดยให้งานรันบน Mac หรือ Windows ที่เชื่อมต่ออยู่",
+      name: "Codex on mobile",
+      thaiPromise: "เริ่ม ติดตาม ส่งคำสั่ง อนุมัติ และ review งาน Codex จากมือถือ โดยให้งานรันใน Cloud หรือบน Mac/Windows ที่เชื่อมต่ออยู่",
       whenToUse: "เมื่อต้องออกจากโต๊ะแต่ยังอยากเริ่มงาน ดู progress ตอบคำถาม อนุมัติ action หรือตรวจ changed files, diffs และ test results",
-      howToStart: "เปิด Settings > Connections > Control this Mac or PC บน Desktop app แล้วเลือก Set up หรือ Add; จากนั้นสแกน QR ด้วย ChatGPT mobile app ใน account และ workspace เดียวกัน",
-      surfaces: ["ChatGPT mobile app", "iOS", "Android", "Desktop app", "macOS", "Windows"],
-      availability: "ขึ้นกับ rollout และ workspace settings; host ต้องเปิด Desktop app, awake, online และ sign in ด้วย account/workspace เดียวกัน",
-      limitations: "งานยังใช้ permission และ security policy ของ connected host; เครื่องที่ sleep, offline หรือปิด app จะหยุด remote access จนกว่าจะพร้อมอีกครั้ง",
+      howToStart: "ใน ChatGPT mobile app เปิด Codex แล้วเลือก Cloud กับ environment หรือ connected computer กับ project; หากใช้ computer ให้เปิด Settings > Connections > Control this Mac or PC บน Desktop app แล้ว pair ด้วย QR",
+      surfaces: ["ChatGPT mobile app", "iOS", "Codex Cloud", "Desktop app", "macOS", "Windows"],
+      availability: "ขึ้นกับ rollout และ workspace settings; Cloud ต้องมี environment ที่ตั้งไว้ ส่วน connected computer ต้องเปิด Desktop app, awake, online และใช้ account/workspace เดียวกัน",
+      limitations: "งานอยู่ใต้ permission และ security policy ของ organization และ environment นั้น; connected computer ที่ sleep, offline หรือปิด app จะใช้ local resources ต่อไม่ได้จนกว่าจะพร้อม",
       prompt: "เปิดโปรเจกต์ checkout บน MacBook ตรวจ test ที่ล้มเหลว สรุปสาเหตุ และหยุดขออนุมัติก่อนแก้ไฟล์",
-      officialUrl: "https://learn.chatgpt.com/docs/remote"
+      officialUrl: "https://learn.chatgpt.com/docs/mobile"
     },
     {
       id: "sites",
@@ -164,8 +164,8 @@
       name: "ChatGPT Voice",
       thaiPromise: "สนทนาด้วยเสียงเพื่อเริ่มงาน เช็ก progress เปลี่ยนทิศทาง หรือ delegate งานใน Chat, Work และ Codex",
       whenToUse: "brainstorm ขณะเดินทาง, hands-free status check หรือ steering งานโดยไม่กลับมาพิมพ์",
-      howToStart: "เลือก Start voice chat ใน task เดิมหรือ Start new voice chat ใน task ใหม่บน Desktop app; Voice ใช้ conversation และ selected model ของ task นั้น ส่วน iOS ใช้ผ่าน Remote หลัง pair กับเครื่อง",
-      surfaces: ["Desktop app", "Remote on iOS"],
+      howToStart: "เลือก Start voice chat ใน task เดิมหรือ Start new voice chat ใน task ใหม่บน Desktop app; Voice ใช้ conversation และ selected model ของ task นั้น ส่วน iOS ใช้ผ่าน Codex on mobile หลัง pair กับเครื่อง",
+      surfaces: ["Desktop app", "Codex on iOS"],
       availability: "มีใน Plus, Pro, Business, Edu และ Enterprise ตาม rollout/workspace",
       limitations: "เปิด Voice chat ได้ทีละหนึ่ง chat; availability ขึ้นกับ plan, rollout และ workspace รวมถึง microphone และ Appshots permissions ที่เกี่ยวข้อง",
       prompt: "เปิด Voice แล้วถามสถานะ goal นี้ สรุป blocker และเปลี่ยนลำดับให้แก้ mobile regression ก่อน",
@@ -192,7 +192,7 @@
       whenToUse: "เมื่อต้องสร้างหรือเชื่อม account กับ partner โดยไม่ตั้ง credential ใหม่ หรืออยากใช้ Codex / ChatGPT Work usage จาก plan เดิมใน app ที่รองรับ",
       howToStart: "เลือก Continue with ChatGPT ใน app หรือ site ตรวจ account information ที่ขอ แล้วพิจารณา permission ใช้ ChatGPT plan แยกจาก permission สำหรับ sign-in",
       surfaces: ["Participating apps", "Partner sites", "ChatGPT Settings"],
-      availability: "Sign-in อยู่ใน limited partner trial; การใช้ ChatGPT plan รองรับ eligible Plus และ Pro subscribers ใน supported apps",
+      availability: "Sign-in ใช้ได้ใน participating apps/sites; ChatGPT plan usage รองรับ eligible Plus และ Pro ใน supported apps และตั้ง weekly percentage cap ต่อ app ได้ที่ Settings > Usage",
       limitations: "การใช้ plan นับรวมใน limits เดิมและ app อาจมีค่าบริการของตนเอง; permission นี้ไม่เปิด conversations หรือ memories และต้องจัดการ app access แยกจาก sign-in",
       prompt: "ก่อนเชื่อม app นี้ ช่วยแยก permissions ที่ขอว่าเป็น sign-in หรือใช้ ChatGPT plan พร้อมบอกผลต่อ usage limit และวิธี disconnect",
       officialUrl: "https://learn.chatgpt.com/docs/sign-in-with-chatgpt"
@@ -281,7 +281,7 @@
       name: "Overview",
       thaiPromise: "มอบ ongoing responsibility ให้ always-on agent ที่ทำงานต่อใน cloud ใช้ computer และ browser ของตัวเอง แล้วกลับมาหาเมื่อมีผลลัพธ์หรือ decision ที่ต้องการคุณ",
       whenToUse: "งานที่ต้องติดตามหลายวัน เชื่อมข้อมูลจากหลายที่ หรือควรเดินต่อระหว่าง conversations โดยไม่ต้องเริ่ม context ใหม่ทุกครั้ง",
-      howToStart: "สร้าง dot ใน Desktop app หรือ desktop browser ตั้งชื่อและรูปลักษณ์ เชื่อม apps หรือ computer เท่าที่จำเป็น แล้วเริ่มจาก responsibility ที่มีแหล่งข้อมูลและขอบเขตชัดเจน",
+      howToStart: "สร้าง dot ใน ChatGPT mobile app, Desktop app หรือ desktop browser; บนมือถือปรับชื่อ รูปลักษณ์ และเชื่อม plugins ได้ ส่วนการเชื่อม computer ทำผ่าน Desktop app",
       surfaces: ["Desktop browser", "Desktop app", "Mobile app", "Slack", "Microsoft Teams"],
       availability: "กำลัง rollout: Pro 100/200/500 สำหรับผู้ใช้อายุเกิน 18 ปีนอก EEA, UK และ Switzerland; Business Premium และ Enterprise rollout ทั่วโลก โดย Enterprise ต้องให้ admin เปิดใช้",
       limitations: "Mobile web ไม่รองรับ; dot อาจทำผิดพลาดและทุก action ยังอยู่ใต้ permissions, approvals และ safeguards; การหยุดงานไม่ย้อน action ที่ทำเสร็จแล้ว",
@@ -294,9 +294,9 @@
       name: "Getting started",
       thaiPromise: "ตั้งค่า dot พร้อม context, apps, contact methods และ computer ที่จำเป็น แล้วเริ่มร่วมงานจาก responsibility แรกที่ตรวจผลได้",
       whenToUse: "เมื่อสร้าง dot ใหม่หรือขยายจาก conversation ธรรมดาไปสู่งานที่ต้องติดตามและ follow through ต่อเนื่อง",
-      howToStart: "เปิด dots บน desktop เชื่อม email, calendar หรือ files ตามต้องใช้ เลือกว่าจะเชื่อม computer หรือไม่ แล้วอธิบาย outcome, sources, decisions และจังหวะแจ้งเตือน",
+      howToStart: "เปิด dots ใน ChatGPT mobile app, Desktop app หรือ desktop browser ตั้งชื่อและรูปลักษณ์ เชื่อม email, calendar หรือ files ตามต้องใช้ แล้วอธิบาย outcome, sources, decisions และจังหวะแจ้งเตือน",
       surfaces: ["Desktop browser", "Desktop app", "Mobile app"],
-      availability: "ต้องเป็น account ที่ได้รับ rollout; หลังสร้างบน desktop แล้วจึงใช้ dot เดิมใน mobile app ได้เมื่อมี supporting update",
+      availability: "ต้องเป็น account ที่ได้รับ rollout; สร้างและใช้ dot ได้ใน ChatGPT mobile app เวอร์ชันล่าสุด, Desktop app หรือ desktop browser ส่วน Mobile web ไม่รองรับ",
       limitations: "Mobile web ไม่รองรับ; app, messaging channel และ computer เป็นคนละ connection การเชื่อมอย่างหนึ่งไม่ให้สิทธิ์อีกอย่างโดยอัตโนมัติ",
       prompt: "ช่วยดูแล offsite นี้ ใช้ plan และ venue emails เพื่อติดตาม decisions, deadlines และ unanswered questions แจ้งเมื่อฉันต้องตัดสินใจ และร่าง reply ไว้ให้ review",
       officialUrl: "https://learn.chatgpt.com/docs/dots/getting-started"
@@ -309,7 +309,7 @@
       whenToUse: "เมื่อต้อง steer งาน เช็ก progress หรือตัดสินใจจากอุปกรณ์และช่องทางที่สะดวกในขณะนั้น",
       howToStart: "เปิด profile ของ dot แล้วเลือก Add เพื่อเชื่อม contact method; ใน Slack ใช้ DM หรือ mention ใน channel/thread และบอกให้ชัดว่าจะเฝ้าอะไร แจ้งที่ไหน และเมื่อใด",
       surfaces: ["ChatGPT", "Voice", "Slack", "Microsoft Teams", "Mobile app"],
-      availability: "ChatGPT desktop/web และ voice ใช้ได้ตาม rollout; mobile ต้องมี supporting update; Texting ระบุว่า coming soon",
+      availability: "สร้าง คุย หรือ call dot ได้ใน ChatGPT mobile app, Desktop app หรือ desktop browser ตาม rollout; Mobile web ไม่รองรับ และ Texting ยัง coming soon",
       limitations: "ข้อความแต่ละ channel ไม่ mirror กัน; การเพิ่ม dot เข้า channel ไม่ได้สร้าง monitoring schedule และ dot ต้องตรวจ permission ก่อนแชร์ข้อมูลจาก private conversation ให้ผู้อื่น",
       prompt: "เก็บ routine progress ไว้ใน ChatGPT แต่ส่ง Slack DM เมื่อ deadline เสี่ยงหรือมี decision ที่ต้องการฉัน พร้อมบอก source และทางเลือก",
       officialUrl: "https://learn.chatgpt.com/docs/dots/channels"
@@ -322,7 +322,7 @@
       whenToUse: "งานที่ต้องสลับ priority, แบ่งทำ parallel, กลับมาต่อภายหลัง หรือมีทั้ง schedule และ event monitoring",
       howToStart: "อธิบายผลลัพธ์และ sources; สำหรับ recurring task ระบุสิ่งที่ต้องตรวจ เวลาและ timezone สิ่งที่ควรแจ้ง และ destination แล้วขอให้ dot ยืนยัน saved schedule",
       surfaces: ["ChatGPT", "Activity", "Scheduled", "Work", "Codex"],
-      availability: "ชนิด task ขึ้นกับ cloud environment, connected computer, apps และ permissions ที่ account มี",
+      availability: "เริ่ม new local Work/Codex task, ต่อ existing local Codex task หรือเริ่ม cloud coding task ใน environment ที่ตั้งไว้ได้ตาม connected computer, environment, apps และ permissions",
       limitations: "Completed run ไม่ยืนยันว่า outcome ส่งมอบสำเร็จ; task ใหม่ไม่ได้รับทุก conversation อัตโนมัติ และการหยุด active work แยกจากการยกเลิก schedule",
       prompt: "ทุกวันจันทร์ 09:00 Asia/Bangkok ตรวจ launch tracker อัปเดต checklist และแจ้งเฉพาะ deadline ที่เสี่ยงหรือ decision ที่ต้องเลือก จากนั้นยืนยัน schedule ที่บันทึก",
       officialUrl: "https://learn.chatgpt.com/docs/dots/tasks-and-memory"
@@ -515,7 +515,7 @@
       title: "Context ไม่ควร\nเริ่มใหม่ทุกแชต",
       lead: "Project ทำให้ files, instructions, sources และ chats อยู่ในขอบเขตงานเดียวกัน แต่แต่ละ surface ให้ access ไม่เหมือนกัน",
       statement: "หนึ่ง Project · หลาย outcomes · Context เดียวกัน",
-      points: ["ChatGPT Project ใช้ shared files และ instructions", "Local Project ผูกกับ folder หรือ workspace", "แยก chat ต่อ outcome เพื่อให้ review ง่าย"],
+      points: ["ChatGPT Project ใช้ shared files และ instructions", "Local Project attach ได้หลาย folders และกำหนด primary folder", "Work Cloud sync ให้ task ใหม่เดินต่อผ่าน desktop, mobile หรือ web"],
       featureIds: ["projects"]
     },
     {
@@ -524,9 +524,9 @@
       type: "focus",
       eyebrow: "WORKFLOWS / 02",
       title: "ลุกจากโต๊ะได้\nแต่งานยังเดินต่อ",
-      lead: "Codex Remote เชื่อม ChatGPT mobile app กับ Mac หรือ Windows ที่ awake และ online เพื่อเริ่ม ส่งคำสั่ง อนุมัติ และ review โดย execution ยังอยู่บน host เดิม",
-      statement: "PHONE → CONNECTED HOST → REVIEW",
-      points: ["เลือก computer และ project จากมือถือ", "ติดตาม progress ตอบคำถาม และอนุมัติ action", "ตรวจ changed files, diffs และ test results ก่อนตัดสินใจ"],
+      lead: "Codex on mobile ใช้ ChatGPT mobile app เพื่อเริ่มและติดตามงานใน Cloud หรือบน connected Mac/Windows พร้อมส่งคำสั่ง อนุมัติ และ review จากมือถือ",
+      statement: "PHONE → CLOUD OR CONNECTED HOST → REVIEW",
+      points: ["เลือก Cloud กับ environment หรือ computer กับ project จากมือถือ", "ติดตาม progress ตอบคำถาม และอนุมัติ action", "ตรวจ changed files, diffs และ test results ก่อนตัดสินใจ"],
       featureIds: ["remote"]
     },
     {
@@ -804,7 +804,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 36 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "5 ตุลาคม 2026",
+      checkedAt: "12 ตุลาคม 2026",
       counts: { workflows: 10, capabilities: 11, dots: 6, space: 5, reference: 4 }
     },
     categories: {
