@@ -144,7 +144,7 @@ if (!fs.existsSync(contentPath)) {
         "officialUrl",
       ];
       const thaiFields = ["thaiPromise", "whenToUse", "howToStart", "availability", "limitations"];
-      const expectedCounts = { workflows: 10, capabilities: 11, dots: 6, space: 5, reference: 4 };
+      const expectedCounts = { workflows: 9, capabilities: 12, sites: 5, dots: 6, space: 5, reference: 4 };
       const categories = Object.keys(expectedCounts);
       const expectedTotal = Object.values(expectedCounts).reduce((sum, count) => sum + count, 0);
       const ids = new Set();
