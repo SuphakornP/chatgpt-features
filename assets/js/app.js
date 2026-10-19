@@ -11,11 +11,12 @@
     intro: { code: "00", name: "ORIENTATION" },
     workflows: { code: "01", name: "WORKFLOWS" },
     capabilities: { code: "02", name: "CAPABILITIES" },
-    dots: { code: "03", name: "CHATGPT DOTS" },
-    space: { code: "04", name: "CHATGPT SPACE" },
-    reference: { code: "05", name: "REFERENCE" },
-    explore: { code: "06", name: "PUT IT TO WORK" },
-    sources: { code: "07", name: "OFFICIAL SOURCES" }
+    sites: { code: "03", name: "SITES" },
+    dots: { code: "04", name: "CHATGPT DOTS" },
+    space: { code: "05", name: "CHATGPT SPACE" },
+    reference: { code: "06", name: "REFERENCE" },
+    explore: { code: "07", name: "PUT IT TO WORK" },
+    sources: { code: "08", name: "OFFICIAL SOURCES" }
   };
 
   const deck = document.querySelector("#deck");
