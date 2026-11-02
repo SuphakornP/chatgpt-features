@@ -36,8 +36,8 @@
       whenToUse: "สร้าง resource hub, dashboard, tracker, request form หรือเครื่องมือคำนวณจากเอกสารและข้อมูลที่มีอยู่",
       howToStart: "บอกว่าเว็บไซต์มีไว้ให้ใคร ใช้ทำอะไร และอ้างอิงข้อมูลชุดไหน แล้ว review และปรับจากผลลัพธ์จริง",
       surfaces: ["Web", "Desktop app"],
-      availability: "การสร้างและแชร์ขึ้นกับ account และ workspace settings; Enterprise ต้องให้ admin เปิด Sites สำหรับ workspace หรือ role ก่อน",
-      limitations: "รองรับ HTTP, HTTPS และ WebSockets แต่ไม่รองรับ raw TCP; บาง framework, private network และ background service ใช้ไม่ได้; D1 จำกัด 10 GB ต่อ Site",
+      availability: "การสร้างและแชร์ขึ้นกับบัญชีและ workspace settings โดย Enterprise ต้องให้ admin เปิด Sites ก่อน การสร้างและแก้เว็บนับเป็น Codex usage ส่วน hosting ฟรีถึง 31 ธันวาคม 2026 และจะดู traffic กับ storage ของแต่ละ Site ได้ตั้งแต่ 1 ธันวาคม 2026",
+      limitations: "ตั้งแต่ 1 มกราคม 2027 จะคิดค่า hosting เฉพาะส่วนที่เกินโควตารายเดือนของแผน ซึ่งใช้ร่วมกันทุก Site สำหรับ Enterprise จะใช้เครดิตขององค์กรตามสัญญา รองรับ HTTP, HTTPS และ WebSockets แต่ไม่รองรับ raw TCP บาง framework, private network และ background service ใช้ไม่ได้ ส่วน D1 จำกัดที่ 10 GB ต่อ Site",
       prompt: "@Sites สร้าง resource hub website จากรายการเอกสารนี้ ให้ค้นและกรองตามหัวข้อได้ รองรับมือถือ และตรวจว่าลิงก์ต้นทางเปิดได้สำหรับผู้ชมที่กำหนด",
       officialUrl: "https://learn.chatgpt.com/docs/sites"
     },
@@ -231,7 +231,7 @@
       whenToUse: "ต้องการต่อยอดหลัง Codex ตอบเสร็จ หรืออยากลดการพิมพ์คำสั่งถัดไปที่สอดคล้องกับ context เดิม",
       howToStart: "อัปเดต Codex desktop app และ sign in ด้วย personal ChatGPT Pro; เมื่อ suggestion ปรากฏ กด Tab เพื่อรับเป็น draft แล้วตรวจ แก้ และส่งเอง",
       surfaces: ["Codex desktop app", "Local threads", "SSH threads"],
-      availability: "Beta สำหรับ personal ChatGPT Pro อายุ 18 ปีขึ้นไปใน supported regions; ใช้ GPT-6 Astra หรือ GPT-6.1 Sol และเปิดเป็นค่าเริ่มต้นสำหรับผู้มีสิทธิ์",
+      availability: "เปิดเป็นค่าเริ่มต้นในช่วง beta สำหรับผู้ใช้ ChatGPT Pro แบบส่วนบุคคล อายุ 18 ปีขึ้นไปในภูมิภาคที่รองรับ ใช้ได้ใน local และ SSH threads กับ GPT-6 Astra, GPT-6.1 Sol หรือ GPT-6.1 Terra",
       limitations: "Tab ไม่ส่งข้อความ; prediction ใช้ context ใน thread โดยไม่ค้น memories/apps เอง; สร้าง prediction ไม่ใช้ limits หรือ credits แต่การส่งข้อความคิดตามปกติ; ปิดได้ที่ Settings > General > Composer > Show predictions",
       prompt: "หลัง Codex ตอบ ให้ตรวจ suggestion แล้วกด Tab เพื่อรับเป็น draft เติมขอบเขตและวิธีตรวจผลก่อนส่ง",
       officialUrl: "https://learn.chatgpt.com/docs/features/composer-predictions"
@@ -347,8 +347,8 @@
       thaiPromise: "มอบ ongoing responsibility ให้ always-on agent ที่ทำงานต่อใน cloud ใช้ computer และ browser ของตัวเอง แล้วกลับมาหาเมื่อมีผลลัพธ์หรือ decision ที่ต้องการคุณ",
       whenToUse: "งานที่ต้องติดตามหลายวัน เชื่อมข้อมูลจากหลายที่ หรือควรเดินต่อระหว่าง conversations โดยไม่ต้องเริ่ม context ใหม่ทุกครั้ง",
       howToStart: "สร้าง dot ใน ChatGPT mobile app, Desktop app หรือ desktop browser; บนมือถือปรับชื่อ รูปลักษณ์ และเชื่อม plugins ได้ ส่วนการเชื่อม computer ทำผ่าน Desktop app",
-      surfaces: ["Desktop browser", "Desktop app", "Mobile app", "Slack", "Microsoft Teams"],
-      availability: "กำลัง rollout: Pro 100/200/500 สำหรับผู้ใช้อายุเกิน 18 ปีนอก EEA, UK และ Switzerland; Business Premium และ Enterprise rollout ทั่วโลก โดย Enterprise ต้องให้ admin เปิดใช้",
+      surfaces: ["Desktop browser", "Desktop app", "Mobile app", "Slack", "Microsoft Teams", "iMessage", "RCS (Android)"],
+      availability: "dots ทยอยเปิดให้ผู้ใช้ Pro 100/200/500 ที่อายุเกิน 18 ปีนอก EEA, UK และ Switzerland รวมถึง Business Premium และ Enterprise ทั่วโลก โดย Enterprise ต้องให้ admin เปิดใช้ ส่วน Texting beta ทยอยเปิดให้ผู้ใช้ ChatGPT Pro ในสหรัฐฯ",
       limitations: "Mobile web ไม่รองรับ; dot อาจทำผิดพลาดและทุก action ยังอยู่ใต้ permissions, approvals และ safeguards; การหยุดงานไม่ย้อน action ที่ทำเสร็จแล้ว",
       prompt: "ช่วยดูแล launch plan นี้ต่อเนื่อง ติดตาม decisions, deadlines และสิ่งที่รอคำตอบ ร่างข้อความให้ review แต่ห้ามส่ง และแจ้งเฉพาะเรื่องที่ต้องตัดสินใจ",
       officialUrl: "https://learn.chatgpt.com/docs/dots"
@@ -370,12 +370,12 @@
       id: "dots-messaging",
       category: "dots",
       name: "Messaging",
-      thaiPromise: "คุยกับ dot ตัวเดิมผ่าน ChatGPT, voice, Slack หรือ Teams และเปิดจาก iOS widget/Shortcuts โดย memory ไม่เริ่มใหม่เมื่อเปลี่ยน channel",
+      thaiPromise: "คุยกับ dot ตัวเดิมผ่าน ChatGPT, voice, Slack หรือ Teams โดย dot ยังจำบริบทเมื่อเปลี่ยนช่องทาง ผู้ที่มีสิทธิ์ใช้ Texting ยังส่งข้อความแบบตัวต่อตัวผ่าน iMessage หรือ RCS บน Android ได้",
       whenToUse: "เมื่อต้อง steer งาน เช็ก progress หรือตัดสินใจจากอุปกรณ์และช่องทางที่สะดวกในขณะนั้น",
-      howToStart: "เชื่อมช่องทางจาก profile > Add; บน iOS เพิ่ม Your dot widget หรือสร้าง Open your dot shortcut แล้วเลือก Messaging, Dictation หรือ Call",
-      surfaces: ["ChatGPT", "Voice", "Slack", "Microsoft Teams", "Mobile app", "iOS widgets", "Apple Shortcuts"],
-      availability: "iOS widget/Shortcuts กำลัง rollout ตั้งแต่ ChatGPT 1.2026.279 และต้องมี dot access; Mobile web ไม่รองรับ และ Texting ยัง coming soon",
-      limitations: "ข้อความแต่ละ channel ไม่ mirror กัน; เพิ่ม dot เข้า channel ไม่สร้าง monitoring schedule และการแชร์ private context ต้องมี permission; Dictation ใช้ไม่ได้ระหว่าง active call",
+      howToStart: "เชื่อมช่องทางจากโปรไฟล์ของ dot หากใช้ Texting ให้เลือก Texting ยืนยันเบอร์โทร แล้วบันทึก contact ของ dot ส่ง iMessage จากเบอร์ที่ยืนยัน หรือเปิด RCS ในแอปข้อความบน Android บน iOS ยังเปิด dot ผ่าน Your dot widget หรือ Open your dot shortcut ได้",
+      surfaces: ["ChatGPT", "Voice", "Slack", "Microsoft Teams", "Mobile app", "iOS widgets", "Apple Shortcuts", "iMessage", "RCS (Android)"],
+      availability: "Texting beta ทยอยเปิดให้ผู้ใช้ ChatGPT Pro ในสหรัฐฯ ส่วน iOS widgets และ Shortcuts ทยอยเปิดตั้งแต่ ChatGPT 1.2026.279 สำหรับบัญชีที่ใช้ dot ได้ และยังไม่รองรับ mobile web",
+      limitations: "Texting ใช้ได้เฉพาะแชตตัวต่อตัว ไม่รองรับกลุ่ม การโทร หรือ FaceTime การยืนยันเบอร์ไม่ได้ให้สิทธิ์อ่านข้อความอื่นในเครื่อง หากต้องอนุมัติงานให้เปิดลิงก์ไปที่ ChatGPT ข้อความแยกตามช่องทาง การแชร์บริบทส่วนตัวต้องได้รับอนุญาต การเพิ่ม dot เข้าช่องทางไม่ได้ตั้งให้ติดตามอัตโนมัติ และใช้ Dictation ระหว่างสายไม่ได้",
       prompt: "เก็บ routine progress ไว้ใน ChatGPT แต่ส่ง Slack DM เมื่อ deadline เสี่ยงหรือมี decision ที่ต้องการฉัน พร้อมบอก source และทางเลือก",
       officialUrl: "https://learn.chatgpt.com/docs/dots/channels"
     },
@@ -710,7 +710,7 @@
       title: "คำสั่งถัดไป\nเริ่มจาก Draft ที่แก้ได้",
       lead: "Composer Predictions เสนอ follow-up จาก context ใน thread หลัง Codex ตอบ กด Tab เพื่อรับเป็น draft แล้วตรวจข้อความก่อนส่ง",
       statement: "SUGGEST → TAB → REVIEW → SEND",
-      points: ["Beta สำหรับ personal Pro อายุ 18+ ใน supported regions", "Local/SSH threads กับ GPT-6 Astra หรือ GPT-6.1 Sol", "รับ prediction ไม่ส่งข้อความและไม่ใช้ credits จนกว่าจะส่ง"],
+      points: ["Beta สำหรับ personal Pro อายุ 18+ ใน supported regions", "Local/SSH threads รองรับ GPT-6 Astra, GPT-6.1 Sol และ GPT-6.1 Terra", "รับ prediction ไม่ส่งข้อความและไม่ใช้ credits จนกว่าจะส่ง"],
       featureIds: ["composer-predictions"]
     },
     {
@@ -766,7 +766,7 @@
       type: "chapter",
       eyebrow: "03 / SITES",
       title: "จาก Brief\nสู่เว็บไซต์\nที่กลับมาใช้ต่อได้",
-      lead: "Sites แยกขั้นสร้างเว็บ เชื่อมข้อมูล แชร์ และดูแล version ให้ตรวจผลและ audience ได้ตลอดทาง",
+      lead: "Sites ช่วยสร้างเว็บ เชื่อมข้อมูล และเลือกผู้ชม การสร้างและแก้เว็บนับเป็น Codex usage ส่วน hosting ฟรีถึง 31 ธันวาคม 2026",
       count: "05",
       featureIds: ["sites", "sites-create", "sites-data", "sites-publish", "sites-manage"]
     },
@@ -914,7 +914,7 @@
       title: "ChatGPT + Codex Features",
       description: "Web Slide ภาษาไทยอธิบาย 41 Features จากเอกสารทางการ OpenAI",
       officialOverview: "https://learn.chatgpt.com/docs/features",
-      checkedAt: "19 ตุลาคม 2026",
+      checkedAt: "2 พฤศจิกายน 2026",
       counts: { workflows: 9, capabilities: 12, sites: 5, dots: 6, space: 5, reference: 4 }
     },
     categories: {
